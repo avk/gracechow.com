@@ -13,6 +13,7 @@ App structure:
         picture
         description
         facts
+        resume ?
         
     Contact Controller
         
