@@ -50,4 +50,12 @@ class Test::Unit::TestCase
     Gallery.create(valid_options_for_gallery.merge(options))
   end
   
+  def valid_options_for_category
+    { :name => "Drawings", :gallery_id => Gallery.first.id }
+  end
+  
+  def create_category(options={})
+    Category.create(valid_options_for_category.merge(options))
+  end
+  
 end

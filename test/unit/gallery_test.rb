@@ -16,5 +16,9 @@ class GalleryTest < ActiveSupport::TestCase
     end
   end
   
+  def test_can_have_many_categories
+    assert Gallery.first.respond_to? :categories
+  end
+  
 
 end
