@@ -35,4 +35,13 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def valid_options_for_gallery
+    { :name => "Artwork" }
+  end
+  
+  def create_gallery(options={})
+    Gallery.create(valid_options_for_gallery.merge(options))
+  end
+  
 end
