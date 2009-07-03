@@ -40,6 +40,12 @@ class Test::Unit::TestCase
     { :name => "Artwork" }
   end
   
+  def invalid_options_for_gallery
+    valid = valid_options_for_gallery
+    valid.shift # drops one
+    valid # now invalid
+  end
+  
   def create_gallery(options={})
     Gallery.create(valid_options_for_gallery.merge(options))
   end
