@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+photos:
+  id: 1
   name: Photos
 
-two:
+fashion:
+  id: 2
   name: Fashion
+
+artwork:
+  id: 3
+  name: Artwork

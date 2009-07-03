@@ -21,23 +21,23 @@ class GalleriesControllerTest < ActionController::TestCase
   end
 
   test "should show gallery" do
-    get :show, :id => galleries(:one).id
+    get :show, :id => galleries(:photos).id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => galleries(:one).id
+    get :edit, :id => galleries(:photos).id
     assert_response :success
   end
 
   test "should update gallery" do
-    put :update, :id => galleries(:one).id, :gallery => { }
+    put :update, :id => galleries(:photos).id, :gallery => { }
     assert_redirected_to gallery_path(assigns(:gallery))
   end
 
   test "should destroy gallery" do
     assert_difference('Gallery.count', -1) do
-      delete :destroy, :id => galleries(:one).id
+      delete :destroy, :id => galleries(:photos).id
     end
 
     assert_redirected_to galleries_path
