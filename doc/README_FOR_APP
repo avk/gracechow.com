@@ -1,5 +1,50 @@
-To build the guides:
+App structure:
 
-* Install source-highlighter (http://www.gnu.org/software/src-highlite/source-highlight.html)
-* Install the mizuho gem (http://github.com/FooBarWidget/mizuho/tree/master)
-* Run `rake guides` from the railties directory
+0. Users
+    1 Admin (Grace)
+        login, password, and logged in state handled by restful_authentication
+    Many viewers
+    Each controller has edit and update actions for the admin, as well as a show action for the viewers
+
+1. Information side
+    Bio Controller
+    
+    Bio
+        picture
+        description
+        facts
+        
+    Contact Controller
+        
+    Contact
+        link
+        icon
+    
+    Feedback
+        name
+        email
+        feedback
+    
+2. Gallery side
+    Galleries Controller
+        presents a gallery full of 1? or more categories
+        1 default category to which all images belong to?
+    
+    Gallery
+        name
+        + categories
+    Category
+        name
+        _ gallery_id
+        + images
+    Image
+        file
+        title
+        description
+        order
+        _ category_id
+        + details
+    Detail
+        file
+        _ image_id
+    
