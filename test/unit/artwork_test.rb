@@ -53,7 +53,7 @@ class ArtworkTest < ActiveSupport::TestCase
     category = Category.last
     last_order_number = category.artworks.size
     assert_difference "Artwork.count", 1 do
-      artwork = create_artwork(:category_id => Category.last.id)
+      artwork = create_artwork(:category_id => category.id)
       assert !artwork.new_record?, "#{artwork.errors.full_messages.to_sentence}"
       assert artwork.order == last_order_number + 1
     end
