@@ -2,7 +2,7 @@ class Gallery < ActiveRecord::Base
   
   has_many :categories
   
-  named_scope :ordered, :order => "sequence DESC"
+  named_scope :ordered, :order => "sequence ASC"
   
   validates_presence_of :name
   
