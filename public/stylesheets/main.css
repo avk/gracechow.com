@@ -41,6 +41,13 @@ body {
     .navigation a:hover {
       color: orange;
     }
+    .navigation .handle {
+      bottom: 2px;
+      cursor: move;
+      position: relative;
+      right: 4px;
+      z-index: 100;
+    }
 
 #main_wrapper {
   margin: 2em auto;

@@ -4,16 +4,22 @@
   <li><a href="#">Contact</a></li>
 </ol>
 
-<ol id="main_navigation" class="navigation">
+<ol id="galleries" class="navigation">
   <% Gallery.ordered.each do |gallery| %>
-    <li>
+    <li id="gallery_<%= gallery.id %>">
       <%- link_text = h(gallery.name) -%>
       <%= link_to_unless_current link_text, gallery do
           "<span class='current'>#{ link_text }</span>"
         end %>
+      <sup class="handle">&deg;</sup>
     </li>
   <% end -%>
+</ol>
+<ol class="navigation">
   <li><%= link_to '+', new_gallery_path %></li>
 </ol>
+
+<%= sortable_element :galleries, :handle => 'handle', :constraint => 'horizontal', :url => reorder_galleries_path %>
+
 <div class="clr"></div>
 <% end -%>
