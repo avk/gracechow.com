@@ -2,8 +2,12 @@
 <ol id="main_navigation">
   <% Gallery.ordered.each do |gallery| %>
     <li>
-      <%=link_to h(gallery.name), gallery %>
+      <%- link_text = h(gallery.name) -%>
+      <%= link_to_unless_current link_text, gallery do
+          "<span class='current'>#{ link_text }</span>"
+        end %>
     </li>
   <% end -%>
 </ol>
+<div class="clr"></div>
 <% end -%>

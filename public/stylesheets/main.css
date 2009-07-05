@@ -1,17 +1,90 @@
+/* Layout */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+#main_navigation {
+  float: left;
+  list-style: none;
+  height: 100%;
+}
+  #main_navigation li {
+    border-bottom: none;
+    float: left;
+    margin-right: 10px;
+    height: 100%;
+  }
+    #main_navigation li .current,
+    #main_navigation a {
+      color: #666;
+      display: block;
+      float: left;
+      font-family: Helvetica, sans-serif;
+      padding: 8px 1em;
+      text-decoration: none;
+    }
+    #main_navigation li .current {
+      background-color: white;
+      border: 1px solid orange;
+      border-bottom: 1px solid white;
+      color: #000;
+      position: relative;
+      z-index: 10;
+    }
+    #main_navigation li a:hover {
+      color: orange;
+    }
+
+#main_wrapper {
+  margin: 2em auto;
+  padding: 20px;
+  width: 960px;
+  border: 1px dotted black;
+}
+#content_wrapper {
+  padding: 20px;
+  position: relative;
+  bottom: 1px;
+}
+
 .flash {
   border: 1px solid;
-  margin: 0.25em;
+  margin: 0.25em 0;
   padding: 13px;
 }
-#flash_notice {
-  color: #4F8A10;
-  background-color: #DFF2BF;
+  #flash_notice {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+  }
+  #flash_warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+  }
+  #flash_error {
+    color: #D8000C;
+    background-color: #FFBABA;
+  }
+
+
+/* Reusable bits */
+h1 { font-size: 2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
+.clr {
+  clear: both;
 }
-#flash_warning {
-  color: #9F6000;
-  background-color: #FEEFB3;
+
+
+/* Galleries */
+.gallery_wrapper {
+  border: 1px solid orange;
 }
-#flash_error {
-  color: #D8000C;
-  background-color: #FFBABA;
+
+.info_wrapper {
+  border: 1px solid yellow;
 }

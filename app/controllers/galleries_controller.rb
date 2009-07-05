@@ -101,15 +101,19 @@ class GalleriesController < ApplicationController
     
     render :update do |page|
       if success
-        page[:flash_notice].innerHTML = "Reordered galleries"
+        flash[:notice] = "Reordered galleries"
+        page[:flash].replace :partial => 'layouts/flash', :locals => { :flash => flash }
         page[:flash_notice].show
         page[:flash_notice].visual_effect :highlight
         page[:flash_notice].visual_effect :fade, :duration => 3
+        flash.clear
       else
-        page[:flash_error].innerHTML = "Could not reorder galleries"
+        flash[:error] = "Could not reorder galleries"
+        page[:flash].replace :partial => 'layouts/flash', :locals => { :flash => flash }
         page[:flash_error].show
         page[:flash_error].visual_effect :highlight
         page[:flash_error].visual_effect :fade, :duration => 3
+        flash.clear
       end
     end
   end

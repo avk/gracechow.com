@@ -1,0 +1,7 @@
+<div id="flash">
+<%- [:notice, :warning, :error].each do |flash_type| -%>
+  <%- if flash[flash_type] -%>
+    <p id="flash_<%= flash_type %>" class="flash"><%= flash[flash_type] %></p>
+  <%- end -%>
+<% end -%>
+</div>
