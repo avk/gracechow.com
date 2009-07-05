@@ -5,7 +5,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Grace Chow</title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0b1/build/cssreset/reset-min.css"> 
+  <%= stylesheet_link_tag 'main' %>
+  
   <%= javascript_include_tag :defaults, :cache => true %>
 </head>
 <body>
@@ -14,9 +17,9 @@
 
 <%= render :partial => 'layouts/nav' %>
 
-<p id="flash_notice" style="color: green"><%= flash[:notice] %></p>
-<p id="flash_warning" style="color: orange"><%= flash[:warning] %></p>
-<p id="flash_error" style="color: red"><%= flash[:error] %></p>
+<p id="flash_notice" class="flash">notice<%= flash[:notice] %></p>
+<p id="flash_warning" class="flash">warning<%= flash[:warning] %></p>
+<p id="flash_error" class="flash">error<%= flash[:error] %></p>
 
 <%= yield  %>
 

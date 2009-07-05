@@ -1,0 +1,17 @@
+.flash {
+  border: 1px solid;
+  margin: 0.25em;
+  padding: 13px;
+}
+#flash_notice {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}
+#flash_warning {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+#flash_error {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
