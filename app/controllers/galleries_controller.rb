@@ -1,4 +1,7 @@
 class GalleriesController < ApplicationController
+  
+  cache_sweeper :gallery_sweeper, :only => [:create, :update, :destroy]
+  
   # GET /galleries
   # GET /galleries.xml
   def index
