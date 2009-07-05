@@ -8,16 +8,20 @@ App structure:
 
 1. Information side
     Bio Controller
+        no index, new, create, or delete methods
     
-    Bio
+    Bio / Account / Admin User
+        * restful_authentication fields *
         picture
         description
         facts
         resume ?
         
     Contact Controller
+        no show method
         
     Contact
+        method
         link
         icon
     
