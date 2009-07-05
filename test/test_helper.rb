@@ -54,8 +54,31 @@ class Test::Unit::TestCase
     { :name => "Drawings", :gallery_id => Gallery.first.id }
   end
   
+  def invalid_options_for_category
+    valid = valid_options_for_category
+    valid.shift # drops one
+    valid # now invalid
+  end
+  
   def create_category(options={})
     Category.create(valid_options_for_category.merge(options))
   end
+  
+  def valid_options_for_artwork
+    { :title => "the Human inb0x", 
+      :description => "made in Art 8, Fall 2006",
+      :category_id => Category.first.id }
+  end
+  
+  def invalid_options_for_artwork
+    valid = valid_options_for_artwork
+    valid.shift # drops one
+    valid # now invalid
+  end
+  
+  def create_artwork(options={})
+    Artwork.create(valid_options_for_artwork.merge(options))
+  end
+  
   
 end

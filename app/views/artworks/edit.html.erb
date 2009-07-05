@@ -1,0 +1,12 @@
+<h1>Editing artwork</h1>
+
+<% form_for(@artwork) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @artwork %> |
+<%= link_to 'Back', artworks_path %>

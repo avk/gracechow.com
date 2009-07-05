@@ -28,8 +28,7 @@ App structure:
     
 2. Gallery side
     Galleries Controller
-        presents a gallery full of 1? or more categories
-        1 default category to which all images belong to?
+        presents a gallery full of 1 or more categories
     
     Gallery
         name
@@ -37,9 +36,11 @@ App structure:
     Category
         name
         _ gallery_id
-        + images
-    Image
-        file
+        + artworks
+    Artwork
+        image_file_name
+        image_content_type
+        image_file_size
         title
         description
         order
@@ -47,5 +48,5 @@ App structure:
         + details
     Detail
         file
-        _ image_id
+        _ artwork_id
     

@@ -30,5 +30,9 @@ class CategoryTest < ActiveSupport::TestCase
       assert category.errors.on(:gallery), "allowing a new category with an invalid gallery"
     end
   end
+  
+  def test_can_have_many_artworks
+    assert Category.first.respond_to? :artworks
+  end
 
 end
