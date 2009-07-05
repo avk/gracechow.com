@@ -4,10 +4,10 @@ one:
   title: Painter's Revenge
   description: vengence from a long time ago
   category_id: 2
-  order: 1
+  sequence: 1
 
 two:
   title: Bare
   description: nudity from a long time ago
   category_id: 2
-  order: 2
+  sequence: 2

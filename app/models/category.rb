@@ -3,22 +3,22 @@ class Category < ActiveRecord::Base
   belongs_to :gallery
   has_many :artworks
   
-  named_scope :ordered, :order => "'order' DESC"
+  named_scope :ordered, :order => "sequence DESC"
   
   validates_presence_of :name
   validates_presence_of :gallery_id
   validates_associated :gallery
   
-  attr_protected :order
-  after_validation :set_order
+  attr_protected :sequence
+  after_validation :set_sequence
   
 private
 
-  def set_order
+  def set_sequence
     if self.gallery and self.gallery.valid?
-      self.order = self.gallery.categories.size + 1
+      self.sequence = self.gallery.categories.size + 1
     else
-      errors.add(:order, "Cannot determine order without a valid gallery")
+      errors.add(:sequence, "Cannot determine sequence without a valid gallery")
     end
   end
   

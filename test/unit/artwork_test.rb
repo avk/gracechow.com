@@ -49,22 +49,22 @@ class ArtworkTest < ActiveSupport::TestCase
     end
   end
   
-  def test_should_set_order_automatically
+  def test_should_set_sequence_automatically
     category = Category.last
-    last_order_number = category.artworks.size
+    last_sequence_number = category.artworks.size
     assert_difference "Artwork.count", 1 do
       artwork = create_artwork(:category_id => category.id)
       assert !artwork.new_record?, "#{artwork.errors.full_messages.to_sentence}"
-      assert artwork.order == last_order_number + 1
+      assert artwork.sequence == last_sequence_number + 1
     end
   end
   
-  def test_should_not_allow_order_to_be_set_via_mass_assignment
-    ["random", 908709870987].each do |order|
+  def test_should_not_allow_sequence_to_be_set_via_mass_assignment
+    ["random", 908709870987].each do |sequence|
       assert_difference "Artwork.count", 1 do
         random_title = Time.now.to_s + rand().to_s
-        artwork = create_artwork(:order => order, :title => random_title)
-        assert artwork.order != order, "allowing a new artwork with arbitrary order: #{order}"
+        artwork = create_artwork(:sequence => sequence, :title => random_title)
+        assert artwork.sequence != sequence, "allowing a new artwork with arbitrary sequence: #{sequence}"
       end
     end
   end

@@ -2,17 +2,17 @@ class Gallery < ActiveRecord::Base
   
   has_many :categories
   
-  named_scope :ordered, :order => "'order' DESC"
+  named_scope :ordered, :order => "sequence DESC"
   
   validates_presence_of :name
   
-  attr_protected :order
-  after_validation :set_order
+  attr_protected :sequence
+  after_validation :set_sequence
   
 private
 
-  def set_order
-    self.order = Gallery.count + 1
+  def set_sequence
+    self.sequence = Gallery.count + 1
   end
   
 end

@@ -3,11 +3,14 @@
 photos:
   id: 1
   name: Photos
+  sequence: 1
 
 fashion:
   id: 2
   name: Fashion
+  sequence: 2
 
 artwork:
   id: 3
   name: Artwork
+  sequence: 3

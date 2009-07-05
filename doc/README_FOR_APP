@@ -36,10 +36,11 @@ App structure:
     
     Gallery
         name
+        sequence
         + categories
     Category
         name
-        order
+        sequence
         _ gallery_id
         + artworks
     Artwork
@@ -48,7 +49,7 @@ App structure:
         image_file_size
         title
         description
-        order
+        sequence
         _ category_id
         + details
     Detail

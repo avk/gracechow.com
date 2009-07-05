@@ -4,18 +4,22 @@ drawings:
   id: 1
   name: Drawings
   gallery_id: 3
+  sequence: 1
 
 paintings:
   id: 2
   name: Paintings
   gallery_id: 3
+  sequence: 2
   
 skirts:
   id: 3
   name: Skirts
   gallery_id: 2
+  sequence: 1
   
 sepia:
   id: 4
   name: Sepia
   gallery_id: 1
+  sequence: 1
