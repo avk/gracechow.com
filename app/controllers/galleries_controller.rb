@@ -102,10 +102,14 @@ class GalleriesController < ApplicationController
     render :update do |page|
       if success
         page[:flash_notice].innerHTML = "Reordered galleries"
-        page[:flash_notice].visual_effect :fade, :duration => 5
+        page[:flash_notice].show
+        page[:flash_notice].visual_effect :highlight
+        page[:flash_notice].visual_effect :fade, :duration => 3
       else
         page[:flash_error].innerHTML = "Could not reorder galleries"
-        page[:flash_error].visual_effect :fade, :duration => 5
+        page[:flash_error].show
+        page[:flash_error].visual_effect :highlight
+        page[:flash_error].visual_effect :fade, :duration => 3
       end
     end
   end
