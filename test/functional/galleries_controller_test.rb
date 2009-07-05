@@ -40,6 +40,6 @@ class GalleriesControllerTest < ActionController::TestCase
       delete :destroy, :id => galleries(:photos).id
     end
 
-    assert_redirected_to galleries_path
+    assert_redirected_to new_gallery_path
   end
 end
