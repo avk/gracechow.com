@@ -34,5 +34,24 @@ class CategoryTest < ActiveSupport::TestCase
   def test_can_have_many_artworks
     assert Category.first.respond_to? :artworks
   end
+  
+  def test_should_set_order_automatically
+    gallery = Gallery.last
+    last_order_number = gallery.categories.size
+    assert_difference "Category.count", 1 do
+      category = create_category(:gallery_id => gallery.id)
+      assert !category.new_record?, "#{category.errors.full_messages.to_sentence}"
+      assert category.order == last_order_number + 1
+    end
+  end
+
+  def test_should_not_allow_order_to_be_set_via_mass_assignment
+    ["random", 908709870987].each do |order|
+      assert_difference "Category.count", 1 do
+        category = create_category(:order => order)
+        assert category.order != order, "allowing a new category with arbitrary order: #{order}"
+      end
+    end
+  end
 
 end

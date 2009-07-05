@@ -39,6 +39,7 @@ App structure:
         + categories
     Category
         name
+        order
         _ gallery_id
         + artworks
     Artwork
