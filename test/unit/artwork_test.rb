@@ -60,11 +60,11 @@ class ArtworkTest < ActiveSupport::TestCase
   end
   
   def test_should_not_allow_order_to_be_set_via_mass_assignment
-    [nil, "random", 908709870987].each do |order|
+    ["random", 908709870987].each do |order|
       assert_difference "Artwork.count", 1 do
         random_title = Time.now.to_s + rand().to_s
         artwork = create_artwork(:order => order, :title => random_title)
-        assert !artwork.new_record?, "#{artwork.errors.full_messages.to_sentence}"
+        assert artwork.order != order, "allowing a new artwork with arbitrary order: #{order}"
       end
     end
   end
