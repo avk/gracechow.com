@@ -1,11 +1,11 @@
 class GalleriesController < ApplicationController
   
-  cache_sweeper :gallery_sweeper, :only => [:create, :update, :destroy]
+  cache_sweeper :gallery_sweeper, :only => [:create, :update, :destroy, :reorder]
   
   # GET /galleries
   # GET /galleries.xml
   def index
-    @galleries = Gallery.find(:all)
+    @galleries = Gallery.ordered
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,4 +85,29 @@ class GalleriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # POST /galleries/reorder
+  # AJAX
+  def reorder
+    galleries = params[:galleries]
+    
+    success = false
+    Gallery.transaction do
+      for i in 0...galleries.size do
+        Gallery.find( galleries[i] ).update_attribute(:sequence, i + 1)
+      end
+      success = true
+    end
+    
+    render :update do |page|
+      if success
+        page[:flash_notice].innerHTML = "Reordered galleries"
+        page[:flash_notice].visual_effect :fade, :duration => 5
+      else
+        page[:flash_error].innerHTML = "Could not reorder galleries"
+        page[:flash_error].visual_effect :fade, :duration => 5
+      end
+    end
+  end
+  
 end
