@@ -1,7 +1,9 @@
 <% cache 'navigation' do %>
 <ol id="main_navigation">
   <% Gallery.ordered.each do |gallery| %>
-    <li><%=h gallery.name %></li>
+    <li>
+      <%=link_to h(gallery.name), gallery %>
+    </li>
   <% end -%>
 </ol>
 <% end -%>
