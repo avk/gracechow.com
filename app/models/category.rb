@@ -3,6 +3,8 @@ class Category < ActiveRecord::Base
   belongs_to :gallery
   has_many :artworks
   
+  named_scope :ordered, :order => "'order' DESC"
+  
   validates_presence_of :name
   validates_presence_of :gallery_id
   validates_associated :gallery
