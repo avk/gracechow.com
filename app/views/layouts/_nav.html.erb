@@ -1,5 +1,10 @@
 <% cache 'navigation' do %>
-<ol id="main_navigation">
+<ol id="info_navigation" class="navigation">
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ol>
+
+<ol id="main_navigation" class="navigation">
   <% Gallery.ordered.each do |gallery| %>
     <li>
       <%- link_text = h(gallery.name) -%>
