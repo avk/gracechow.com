@@ -4,6 +4,17 @@ body {
   font-size: 1.2em;
 }
 
+#main_wrapper {
+  margin: 2em auto;
+  padding: 20px;
+  width: 960px;
+}
+#content_wrapper {
+  padding: 20px;
+  position: relative;
+  bottom: 1px;
+}
+
 .navigation {
   float: left;
   list-style: none;
@@ -43,23 +54,10 @@ body {
     }
     .navigation .handle {
       bottom: 2px;
-      cursor: move;
       position: relative;
       right: 4px;
       z-index: 100;
     }
-
-#main_wrapper {
-  margin: 2em auto;
-  padding: 20px;
-  width: 960px;
-  border: 1px dotted black;
-}
-#content_wrapper {
-  padding: 20px;
-  position: relative;
-  bottom: 1px;
-}
 
 .flash {
   border: 1px solid;
@@ -82,14 +80,24 @@ body {
 
 /* Reusable bits */
 h1 { font-size: 2em; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.6em; }
-h4 { font-size: 1.4em; }
-h5 { font-size: 1.2em; }
-h6 { font-size: 1em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.3em; }
+
+fieldset {
+  border: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 10px;
+}
+  legend {
+    font-weight: bold;
+    padding: 0 5px;
+  }
 
 .clr {
   clear: both;
+}
+.handle {
+  cursor: move;
 }
 
 
@@ -100,4 +108,11 @@ h6 { font-size: 1em; }
 
 .info_wrapper {
   border: 1px solid yellow;
+}
+
+#gallery_categories .handle {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 300px;
 }

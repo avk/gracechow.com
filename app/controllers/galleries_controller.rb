@@ -17,6 +17,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.xml
   def show
     @gallery = Gallery.find(params[:id])
+    @categories = @gallery.categories.ordered
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,6 +39,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1/edit
   def edit
     @gallery = Gallery.find(params[:id])
+    @category = Category.new
   end
 
   # POST /galleries
@@ -65,7 +67,7 @@ class GalleriesController < ApplicationController
     respond_to do |format|
       if @gallery.update_attributes(params[:gallery])
         flash[:notice] = 'Gallery was successfully updated.'
-        format.html { redirect_to(@gallery) }
+        format.html { redirect_to(@gallery) } # should this redirect back to edit instead? since this is only called when it's renamed
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

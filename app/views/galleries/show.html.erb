@@ -1,2 +1,9 @@
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> | 
-<%= link_to 'Delete', @gallery, :confirm => 'Are you sure?', :method => :delete %>
+<a href="#">Add Artwork</a> | 
+<%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> | 
+<%= link_to 'Delete Gallery', @gallery, :confirm => 'Are you sure?', :method => :delete %>
+
+<br /><br />
+
+<%- @categories.each do |category| -%>
+  <h2><%= h(category.name) %></h2>
+<% end -%>

@@ -1,12 +1,35 @@
-<h1>Editing gallery</h1>
+<h2>Editing <%= h(@gallery.name) %> Gallery</h2>
 
+<br />
 <% form_for(@gallery) do |f| %>
   <%= f.error_messages %>
-  
+  <%= f.label :name %>
+  &nbsp;&nbsp;
   <%= f.text_field :name %>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+  <%= f.submit "Rename" %>
+<% end %>  
 
-<%= link_to 'Show', @gallery %>
+<hr />
+
+<fieldset>
+  <legend>Categories</legend>
+  
+  <ol id="gallery_categories">
+  <% @gallery.categories.ordered.each do |category| -%>
+    <%= render :partial => "categories/category", :locals => { :category => category } %>
+  <% end -%>
+  </ol>
+  
+  <%= render :partial => 'categories/sortable_categories' %>
+  
+  <br />
+  <%- remote_form_for [@gallery, @category] do |f| -%>
+    <%= f.label :name, "New" %>
+    &nbsp;&nbsp;
+    <%= f.text_field :name %>
+    <%= f.submit "Add" %>
+  <% end -%>
+  
+</fieldset>
+
+<%= link_to 'View this Gallery', @gallery %>

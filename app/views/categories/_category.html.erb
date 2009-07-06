@@ -1,0 +1,28 @@
+<li id="category_<%= category.id %>">
+  
+  <div id="category_<%= category.id %>_static">
+    <span class="handle"><%= h(category.name) %></span>
+    <%= link_to_function 'Rename' do |page|
+      page["category_#{category.id}_static"].hide
+      page["category_#{category.id}_dynamic"].show
+    end %>
+    <%= link_to_remote 'Delete', 
+        :url => gallery_category_path(@gallery, category), 
+        :confirm => 'Are you sure?', 
+        :method => :delete %>
+  </div>
+  
+  <div id="category_<%= category.id %>_dynamic" style="display:none;">
+    <%- remote_form_for [@gallery, category] do |f| -%>
+      <%= f.label :name %>
+      &nbsp;&nbsp;
+      <%= f.text_field :name %>
+      <%= f.submit "Update" %>
+      <%= link_to_function 'Cancel' do |page|
+        page["category_#{category.id}_dynamic"].hide
+        page["category_#{category.id}_static"].show
+      end %>
+    <% end -%>
+  </div>
+  
+</li>
