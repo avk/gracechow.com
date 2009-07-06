@@ -1,6 +1,6 @@
 class Gallery < ActiveRecord::Base
   
-  has_many :categories
+  has_many :categories, :dependent => :destroy
   
   named_scope :ordered, :order => "sequence ASC"
   
