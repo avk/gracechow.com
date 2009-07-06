@@ -37,7 +37,7 @@ class Test::Unit::TestCase
   # Add more helper methods to be used by all tests here...
   
   def valid_options_for_gallery
-    { :name => "Artwork" }
+    { :name => "Artwork" + Time.now.to_s }
   end
   
   def invalid_options_for_gallery

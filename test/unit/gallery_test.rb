@@ -16,6 +16,16 @@ class GalleryTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_have_a_unique_name
+    name = "Unoriginal"
+    assert_difference "Gallery.count", 1 do
+      gallery = create_gallery(:name => name)
+      assert !gallery.new_record?, "#{gallery.errors.full_messages.to_sentence}"
+      gallery2 = create_gallery(:name => name)
+      assert gallery2.errors.on(:name), "allowing a new gallery with a duplicate name"
+    end
+  end
+  
   def test_can_have_many_categories
     assert Gallery.first.respond_to? :categories
   end
@@ -32,7 +42,8 @@ class GalleryTest < ActiveSupport::TestCase
   def test_should_not_allow_sequence_to_be_set_via_mass_assignment
     ["random", 908709870987].each do |sequence|
       assert_difference "Gallery.count", 1 do
-        gallery = create_gallery(:sequence => sequence)
+        random_name = Time.now.to_s + rand().to_s
+        gallery = create_gallery(:sequence => sequence, :name => random_name)
         assert gallery.sequence != sequence, "allowing a new gallery with arbitrary sequence: #{sequence}"
       end
     end
