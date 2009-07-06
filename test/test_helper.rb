@@ -51,7 +51,7 @@ class Test::Unit::TestCase
   end
   
   def valid_options_for_category
-    { :name => "Drawings", :gallery_id => Gallery.first.id }
+    { :name => "Drawings" + Time.now.to_s, :gallery_id => Gallery.first.id }
   end
   
   def invalid_options_for_category

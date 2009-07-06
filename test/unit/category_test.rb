@@ -16,6 +16,16 @@ class CategoryTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_have_a_unique_name
+    name = "Unoriginal"
+    assert_difference "Category.count", 1 do
+      category = create_category(:name => name)
+      assert !category.new_record?, "#{category.errors.full_messages.to_sentence}"
+      category2 = create_category(:name => name)
+      assert category2.errors.on(:name), "allowing a new category with a duplicate name"
+    end
+  end
+  
   def test_should_belong_to_a_gallery
     assert_no_difference "Category.count" do
       category = create_category(:gallery_id => nil)
@@ -48,7 +58,8 @@ class CategoryTest < ActiveSupport::TestCase
   def test_should_not_allow_sequence_to_be_set_via_mass_assignment
     ["random", 908709870987].each do |sequence|
       assert_difference "Category.count", 1 do
-        category = create_category(:sequence => sequence)
+        random_name = Time.now.to_s + rand().to_s
+        category = create_category(:sequence => sequence, :name => random_name)
         assert category.sequence != sequence, "allowing a new category with arbitrary sequence: #{sequence}"
       end
     end

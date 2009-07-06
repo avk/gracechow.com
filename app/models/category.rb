@@ -6,6 +6,7 @@ class Category < ActiveRecord::Base
   named_scope :ordered, :order => "sequence ASC"
   
   validates_presence_of :name
+  validates_uniqueness_of :name
   validates_presence_of :gallery_id
   validates_associated :gallery
   
