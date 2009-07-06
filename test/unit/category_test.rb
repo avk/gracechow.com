@@ -64,5 +64,16 @@ class CategoryTest < ActiveSupport::TestCase
       end
     end
   end
+  
+  def test_should_not_set_the_sequence_on_updates
+    category = Category.first
+    original_sequence = category.sequence
+
+    category.name = "something else that's very unique"
+    category.save
+    category.reload
+    
+    assert original_sequence == category.sequence, "setting a new sequence on category updates"
+  end
 
 end

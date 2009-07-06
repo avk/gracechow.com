@@ -48,5 +48,16 @@ class GalleryTest < ActiveSupport::TestCase
       end
     end
   end
+  
+  def test_should_not_set_the_sequence_on_updates
+    gallery = Gallery.first
+    original_sequence = gallery.sequence
+
+    gallery.name = "something else that's very unique"
+    gallery.save
+    gallery.reload
+    
+    assert original_sequence == gallery.sequence, "setting a new sequence on gallery updates"
+  end
 
 end

@@ -8,7 +8,7 @@ class Gallery < ActiveRecord::Base
   validates_uniqueness_of :name
   
   attr_protected :sequence
-  after_validation :set_sequence
+  before_create :set_sequence
   
 private
 

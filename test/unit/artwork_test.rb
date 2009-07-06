@@ -68,5 +68,16 @@ class ArtworkTest < ActiveSupport::TestCase
       end
     end
   end
+  
+  def test_should_not_set_the_sequence_on_updates
+    artwork = Artwork.first
+    original_sequence = artwork.sequence
+
+    artwork.title = "something else that's very unique"
+    artwork.save
+    artwork.reload
+    
+    assert original_sequence == artwork.sequence, "setting a new sequence on artwork updates"
+  end
 
 end

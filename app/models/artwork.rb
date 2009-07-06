@@ -13,7 +13,7 @@ class Artwork < ActiveRecord::Base
   validates_associated :category
   
   attr_protected :sequence
-  after_validation :set_sequence
+  before_create :set_sequence
   
 private
 

@@ -11,7 +11,7 @@ class Category < ActiveRecord::Base
   validates_associated :gallery
   
   attr_protected :sequence
-  after_validation :set_sequence
+  before_create :set_sequence
   
 private
 
