@@ -2,7 +2,7 @@ set :application, "gracechow.com"
 set :runner, "avk"
 set :user, "avk"
 set :deploy_via, :remote_cache
-set :repository_cache, "#{application}_cache"
+set :use_sudo, true
 
 # If you have previously been relying upon the code to start, stop 
 # and restart your mongrel application, or if you rely on the database
@@ -43,3 +43,58 @@ ssh_options[:port] = 8888
 role :app, application
 role :web, application
 role :db, application, :primary => true
+
+# after "deploy", "symlink_log"
+# after "deploy", "symlink_database"
+
+# desc "Link the log in shared to the log in release"
+# task :symlink_log do
+#   run "ln -s #{shared_path}/log #{release_path}/log"
+# end
+
+after "deploy:setup", "chown"
+
+desc "changes the owner of the root directory"
+task :chown do
+  run "sudo chown -R #{runner} #{deploy_to}"
+end
+
+### from http://archive.jvoorhis.com/articles/2006/07/07/managing-database-yml-with-capistrano
+### but modified, because it was from capistrano v1
+desc "Create database.yml in shared/config" 
+task :after_setup do
+  database_configuration = <<-EOF
+
+development:
+  adapter: mysql
+  encoding: utf8
+  database: gracechow_development
+  pool: 5
+  username: you
+  password: pass
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: gracechow_test
+  pool: 5
+  username: you
+  password: pass
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: gracechow_production
+  pool: 5
+  username: you
+  password: pass
+EOF
+
+  run "mkdir -p #{deploy_to}/#{shared_dir}/config" 
+  put database_configuration, "#{deploy_to}/#{shared_dir}/config/database.yml" 
+end
+
+desc "Updates the symlink for database.yml file to the just deployed release."
+task :after_update_code do
+  run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+end
