@@ -1,6 +1,6 @@
 set :application, "gracechow.com"
-set :runner 'avk'
-set :user 'avk'
+set :runner, "avk"
+set :user, "avk"
 set :deploy_via, :remote_cache
 set :repository_cache, "#{application}_cache"
 
