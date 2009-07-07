@@ -59,8 +59,8 @@ task :chown do
   run "sudo chown -R #{runner} #{deploy_to}"
 end
 
-### from http://archive.jvoorhis.com/articles/2006/07/07/managing-database-yml-with-capistrano
-### but modified, because it was from capistrano v1
+# from http://archive.jvoorhis.com/articles/2006/07/07/managing-database-yml-with-capistrano
+# but modified, because it was from capistrano v1
 desc "Create database.yml in shared/config" 
 task :after_setup do
   database_configuration = <<-EOF
@@ -97,4 +97,18 @@ end
 desc "Updates the symlink for database.yml file to the just deployed release."
 task :after_update_code do
   run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+end
+
+# from http://www.zorched.net/2008/06/17/capistrano-deploy-with-git-and-passenger/
+namespace :deploy do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "mkdir -p #{current_path}/tmp"
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+ 
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
 end
