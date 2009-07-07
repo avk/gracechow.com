@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Only for my babycake"
+AuthUserFile ~/public_html/gracechow.com/current/pw
+Require graciewacie
+
