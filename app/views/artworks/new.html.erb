@@ -1,26 +1,30 @@
 <h1>New artwork</h1>
 
-<% form_for [@gallery, @artwork], :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
+<%- if @categories.empty? -%>
+  Sorry, you can't add any artworks until you've <%= link_to "added some categories", edit_gallery_path(@gallery) %>.
+<%- else -%>
+  <% form_for [@gallery, @artwork], :html => { :multipart => true } do |f| %>
+    <%= f.error_messages %>
 
-  <%= f.label :title %>
-  &nbsp;&nbsp;
-  <%= f.text_field :title %>
+    <%= f.label :title %>
+    &nbsp;&nbsp;
+    <%= f.text_field :title %>
 
-  <br /><br />
-  <%= f.label :description %>
-  <%= f.text_area :description, :value => '', :style => "height: 200px; width: 300px" %>
+    <br /><br />
+    <%= f.label :description %>
+    <%= f.text_area :description, :value => '', :style => "height: 200px; width: 300px" %>
 
-  <br /><br />
-  <%= f.label :category %>
-  <%= f.select :category_id, @categories.collect {|c| [ c.name, c.id ]} %>
+    <br /><br />
+    <%= f.label :category %>
+    <%= f.select :category_id, @categories.collect {|c| [ c.name, c.id ]} %>
 
-  <br /><br />
-  <%= f.label :image %>
-  <%= f.file_field :image %>
+    <br /><br />
+    <%= f.label :image %>
+    <%= f.file_field :image %>
 
-  <br /><br />
-  <p>
-    <%= f.submit "Save" %>
-  </p>
-<% end %>
+    <br /><br />
+    <p>
+      <%= f.submit "Save" %>
+    </p>
+  <% end %>
+<% end -%>
