@@ -9,8 +9,7 @@
     <li id="gallery_<%= gallery.id %>">
       <%- link_text = h(gallery.name) -%>
       
-      <%# the second condition below picks out the current tab when viewing from map.root %>
-      <%- if current_page?(gallery) or (current_page?(root_path) and gallery == Gallery.ordered.first) -%>
+      <%- if viewing_gallery? gallery -%>
         <span class='current'><%= link_text %></span>
       <%- else -%>
         <%= link_to link_text, gallery %>
