@@ -116,3 +116,17 @@ fieldset {
   overflow: hidden;
   width: 300px;
 }
+
+.artworks {
+  clear: both;
+}
+.artworks ol {
+  margin-left: 40px;
+}
+.artwork_thumbnail {
+  float: left;
+  margin: 20px 20px 0 0;
+  height: 150px;
+  width: 150px;
+}
+

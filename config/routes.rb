@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :artworks
 
   map.resources :galleries, :collection => { :reorder => :post } do |galleries|
     galleries.resources :categories, :collection => { :reorder => :post }
+    galleries.resources :artworks
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

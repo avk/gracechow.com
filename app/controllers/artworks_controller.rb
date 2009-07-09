@@ -1,15 +1,7 @@
 class ArtworksController < ApplicationController
-  # GET /artworks
-  # GET /artworks.xml
-  def index
-    @artworks = Artwork.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @artworks }
-    end
-  end
-
+  
+  before_filter :get_gallery
+  
   # GET /artworks/1
   # GET /artworks/1.xml
   def show
@@ -25,6 +17,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/new.xml
   def new
     @artwork = Artwork.new
+    @categories = @gallery.categories
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,11 +34,12 @@ class ArtworksController < ApplicationController
   # POST /artworks.xml
   def create
     @artwork = Artwork.new(params[:artwork])
+    @categories = @gallery.categories
 
     respond_to do |format|
       if @artwork.save
         flash[:notice] = 'Artwork was successfully created.'
-        format.html { redirect_to(@artwork) }
+        format.html { redirect_to(@gallery) }
         format.xml  { render :xml => @artwork, :status => :created, :location => @artwork }
       else
         format.html { render :action => "new" }
@@ -82,4 +76,11 @@ class ArtworksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+protected
+
+  def get_gallery
+    @gallery = Gallery.find(params[:gallery_id])
+  end
+  
 end

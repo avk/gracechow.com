@@ -17,7 +17,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.xml
   def show
     @gallery = Gallery.find(params[:id])
-    @categories = @gallery.categories.ordered
+    @categories = @gallery.categories.ordered.find(:all, :include => :artworks)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,9 +1,19 @@
-<a href="#">Add Artwork</a> | 
+<%= link_to 'Add Artwork', new_gallery_artwork_path(@gallery) %> | 
 <%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> | 
 <%= link_to 'Delete Gallery', @gallery, :confirm => 'Are you sure?', :method => :delete %>
 
 <br /><br />
 
 <%- @categories.each do |category| -%>
+<div class="artworks">
   <h2><%= h(category.name) %></h2>
+  
+  <ol>
+    <%- category.artworks.each do |artwork| -%>
+      <li class='artwork_thumbnail' style="background: transparent url('<%= artwork.image.url(:thumb) %>') no-repeat center center;">
+        &nbsp;
+      </li>
+    <% end -%>
+  </ol>
+</div>
 <% end -%>
