@@ -27,6 +27,8 @@
   </div>
 </div>
 
-<script src='http://beta.outspokes.com/widget/43' type='text/javascript'></script>
+<%- if RAILS_ENV == 'production' -%>
+  <script src='http://beta.outspokes.com/widget/43' type='text/javascript'></script>
+<% end -%>
 </body>
 </html>
