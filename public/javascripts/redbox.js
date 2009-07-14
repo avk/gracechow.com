@@ -11,6 +11,7 @@ var RedBox = {
 
   loading: function()
   {
+    console.log("loading...");
     this.showOverlay();
     Element.show('RB_loading');
     this.setWindowPosition();
@@ -18,6 +19,7 @@ var RedBox = {
 
   addHiddenContent: function(id)
   {
+    console.log("AJAX done!");
     this.removeChildrenFromNode($('RB_window'));
     this.moveChildren($(id), $('RB_window'));
     Element.hide('RB_loading');
@@ -43,7 +45,7 @@ var RedBox = {
     {
       new Insertion.Bottom(document.body, '<div id="RB_redbox" align="center"><div id="RB_window" style="display: none;"></div><div id="RB_overlay" style="display: none;"></div></div>');      
     }
-    new Insertion.Top('RB_overlay', '<div id="RB_loading" style="display: none"></div>');  
+    new Insertion.Top('RB_overlay', '<div id="RB_loading" style="display: none"><a onclick="RedBox.close(); return false;" href="#">Cancel</a></div>');  
 
     this.setOverlaySize();
     new Effect.Appear('RB_overlay', {duration: 0.4, to: 0.6, queue: 'end'});
@@ -73,12 +75,15 @@ var RedBox = {
     $("RB_window").style['width'] = 'auto';
     $("RB_window").style['height'] = 'auto';
 
-    var dimensions = Element.getDimensions($("RB_window"));
-    var width = dimensions.width;
-    var height = dimensions.height;        
+    // var dimensions = Element.getDimensions($("RB_window"));
+    // var width = dimensions.width;
+    // var height = dimensions.height;
+    // 
+    // $("RB_window").style['left'] = ((pagesize[0] - width)/2) + "px";
+    // $("RB_window").style['top'] = ((pagesize[1] - height)/2) + "px";
     
-    $("RB_window").style['left'] = ((pagesize[0] - width)/2) + "px";
-    $("RB_window").style['top'] = ((pagesize[1] - height)/2) + "px";
+    $("RB_window").style['left'] = '50px';
+    $("RB_window").style['top'] = '50px';
   },
 
 

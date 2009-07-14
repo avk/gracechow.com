@@ -5,9 +5,16 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   def show
     @artwork = Artwork.find(params[:id])
+    
+    all = @artwork.category.artworks
+    @sequence = all.index(@artwork) + 1
+    @size = all.size
+    
+    @prev_artwork = Artwork.before(@artwork)
+    @next_artwork = Artwork.after(@artwork)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.js { render :partial => 'show' }
     end
   end
 

@@ -123,10 +123,65 @@ fieldset {
 .artworks ol {
   margin-left: 40px;
 }
-.artwork_thumbnail {
+.artworks ol li {
   float: left;
   margin: 20px 20px 0 0;
+}
+.artwork_thumbnail {
   height: 150px;
   width: 150px;
 }
+
+#hoverbox {
+  height: auto;
+  max-height: 700px;
+  width: 900px;
+}
+  #hoverbox .close {
+    display: block;
+    float: right;
+    padding: 5px;
+  }
+  #hoverbox .close a:link, 
+  #hoverbox .close a:visited {
+    color: #999;
+    text-decoration: none;
+  }
+  
+  #hoverbox h3 {
+    font-family: Georgia, Tahoma, serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
+  hr {
+    border-top: 1px dotted #999;
+    border-bottom: none;
+    height: 1px;
+    width: 90%;
+  }
+  
+  #full_artwork {
+    float: left;
+    margin: 0 20px 20px 20px;
+    max-height: 600px;
+    max-width: 600px;
+  }
+  
+  .sequence {
+    clear: both;
+    color: #aaa;
+    font-family: Georgia, Tahoma, serif;
+    font-size: 1.5em;
+    margin: 10px;
+    text-align: center;
+  }
+    .sequence .of {
+      font-size: 0.7em;
+    }
+    .sequence a:link,
+    .sequence a:visited {
+      text-decoration: none;
+      color: #ccc;
+    }
 

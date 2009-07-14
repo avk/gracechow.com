@@ -1,13 +1,22 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   title: Painter's Revenge
   description: vengence from a long time ago
   category_id: 2
   sequence: 1
 
 two:
+  id: 2
   title: Bare
   description: nudity from a long time ago
   category_id: 2
   sequence: 2
+
+three:
+  id: 3
+  title: 'Elsewhere, Never'
+  description: could not happen anywhere but here
+  category_id: 2
+  sequence: 3

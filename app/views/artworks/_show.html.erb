@@ -1,0 +1,32 @@
+<div id="hoverbox">
+  <span class="close"><%= link_to_close_redbox 'x' %></span>
+  <h3 class="artwork_title"><%=h @artwork.title %></h3>
+  <hr />
+
+  <%= image_tag @artwork.image.url, :id => 'full_artwork' %>
+  <div class="artwork_description">
+    <%=h @artwork.description %>
+  </div>
+
+  <div class="sequence">
+    <%- if @prev_artwork -%>
+    <span id="prev_artwork">
+      <%= link_to_remote_redbox '&laquo;', 
+      :url => gallery_artwork_path(@gallery, @prev_artwork), 
+      :method => :get %>
+    </span>
+    <%- end -%>
+
+    <%= @sequence %> <span class="of">of</span> <%= @size %>
+
+    <%- if @next_artwork -%>
+    <span id="next_artwork">
+      <%= link_to_remote_redbox '&raquo;', 
+      :url => gallery_artwork_path(@gallery, @next_artwork), 
+      :method => :get %>
+    </span>
+    <%- end -%>
+
+  </div>
+</div>
+

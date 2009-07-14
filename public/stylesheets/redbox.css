@@ -1,5 +1,5 @@
 #RB_overlay {
-  position: absolute;
+  position: fixed;
   z-index:100;
   width: 100%;
   height: 100%;
@@ -19,9 +19,13 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
-  padding-bottom: 30px;
+  padding: 50px 37px 37px 37px;
   text-align: center;
-  background: url(../images/redbox_spinner.gif) no-repeat bottom center;
+  background: #fff url(../images/redbox_spinner.gif) no-repeat center center;
+}
+#RB_loading a {
+  position: relative;
+  top: 23px;
 }
 
 #RB_window {
@@ -29,8 +33,7 @@
   background-color: #FFFFFF;
   display: block;
   text-align: left;
-  overflow: hidden;
-  margin: 20px auto 0 auto;
-  position:fixed;
-  position: absolute;
+/*  overflow: auto;*/
+  margin: 0 auto;
+  position: fixed;
 }
