@@ -79,5 +79,25 @@ class ArtworkTest < ActiveSupport::TestCase
     
     assert original_sequence == artwork.sequence, "setting a new sequence on artwork updates"
   end
+  
+  def test_should_be_able_to_fetch_previous_artwork_within_its_category
+    artwork = artworks(:two)
+    assert Artwork.before(artwork) == artworks(:one)
+  end
+  
+  def test_should_return_nil_for_previous_artwork_if_first_within_its_category
+    artwork = artworks(:one)
+    assert Artwork.before(artwork) == nil
+  end
+  
+  def test_should_be_able_to_fetch_next_artwork_within_its_category
+    artwork = artworks(:two)
+    assert Artwork.after(artwork) == artworks(:three)
+  end
+  
+  def test_should_return_nil_for_next_artwork_if_last_within_its_category
+    artwork = artworks(:three)
+    assert Artwork.after(artwork) == nil
+  end
 
 end

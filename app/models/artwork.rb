@@ -15,6 +15,21 @@ class Artwork < ActiveRecord::Base
   attr_protected :sequence
   before_create :set_sequence
   
+  # the artwork sequentially before this one (in it's respective category)
+  def self.before(artwork)
+    all = artwork.category.artworks.ordered
+    my_position = all.index(artwork)
+    (my_position == 0) ? nil : all[ (my_position-1) % all.size ]
+  end
+  
+  # the artwork sequentially after this one (in it's respective category)
+  def self.after(artwork)
+    all = artwork.category.artworks.ordered
+    my_position = all.index(artwork)
+    (my_position == all.size - 1) ? nil : all[ (my_position+1) % all.size ]
+  end
+  
+  
 private
 
   def set_sequence
