@@ -44,13 +44,7 @@ role :app, application
 role :web, application
 role :db, application, :primary => true
 
-# after "deploy", "symlink_log"
-# after "deploy", "symlink_database"
 
-# desc "Link the log in shared to the log in release"
-# task :symlink_log do
-#   run "ln -s #{shared_path}/log #{release_path}/log"
-# end
 
 after "deploy:setup", "chown"
 
@@ -99,6 +93,10 @@ task :after_update_code do
   run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 end
 
+
+
+before "deploy:restart", "deploy:remove_cached_assets"
+
 # from http://www.zorched.net/2008/06/17/capistrano-deploy-with-git-and-passenger/
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
@@ -106,7 +104,13 @@ namespace :deploy do
     run "mkdir -p #{current_path}/tmp"
     run "touch #{current_path}/tmp/restart.txt"
   end
- 
+  
+  desc "Remove cached js and css"
+  task :remove_cached_assets do
+    run "rm -f #{current_path}/public/stylesheets/cached_*.css"
+    run "rm -f #{current_path}/public/javascripts/cached_*.js"
+  end
+  
   [:start, :stop].each do |t|
     desc "#{t} task is a no-op with mod_rails"
     task t, :roles => :app do ; end
