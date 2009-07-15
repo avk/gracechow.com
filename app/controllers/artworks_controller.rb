@@ -6,7 +6,7 @@ class ArtworksController < ApplicationController
   def show
     @artwork = Artwork.find(params[:id])
     
-    all = @artwork.category.artworks
+    all = @artwork.category.artworks.ordered
     @sequence = all.index(@artwork) + 1
     @size = all.size
     
