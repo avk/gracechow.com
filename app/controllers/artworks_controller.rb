@@ -21,7 +21,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/new
   def new
     @artwork = Artwork.new
-    @categories = @gallery.categories
+    @categories = @gallery.categories.ordered
     if params[:category_id]
       @artwork.category = @categories.find(params[:category_id])
     end
