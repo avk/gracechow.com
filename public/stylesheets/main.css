@@ -177,6 +177,10 @@ fieldset {
     max-width: 600px;
   }
   
+  .artwork_description {
+    padding-right: 10px;
+  }
+  
   .sequence {
     clear: both;
     color: #aaa;
