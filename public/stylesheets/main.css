@@ -110,11 +110,15 @@ fieldset {
   border: 1px solid yellow;
 }
 
+/* Galleries / Edit */
 #gallery_categories .handle {
   display: block;
   float: left;
   overflow: hidden;
   width: 300px;
+}
+#edit_gallery_categories {
+  margin-left: 25px;
 }
 
 .artworks {
