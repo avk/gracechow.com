@@ -11,6 +11,12 @@ class ArtworksControllerTest < ActionController::TestCase
     get :new, :gallery_id => @gallery.id
     assert_response :success
   end
+  
+  test "should get new with category already picked" do
+    get :new, :gallery_id => @gallery.id, :category_id => @gallery.categories.first.id
+    assert assigns(:category)
+    assert_response :success
+  end
 
   test "should create artwork" do
     assert_difference('Artwork.count') do

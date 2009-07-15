@@ -22,6 +22,9 @@ class ArtworksController < ApplicationController
   def new
     @artwork = Artwork.new
     @categories = @gallery.categories
+    if params[:category_id]
+      @artwork.category = @categories.find(params[:category_id])
+    end
 
     respond_to do |format|
       format.html # new.html.erb

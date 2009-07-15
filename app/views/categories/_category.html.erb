@@ -10,6 +10,7 @@
         :url => gallery_category_path(@gallery, category), 
         :confirm => 'Are you sure?', 
         :method => :delete %>
+    <%= link_to 'Add Photos', new_gallery_artwork_path(@gallery, :category_id => category.id) %>
   </div>
   
   <div id="category_<%= category.id %>_dynamic" style="display:none;">
