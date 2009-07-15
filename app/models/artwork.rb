@@ -1,7 +1,7 @@
 class Artwork < ActiveRecord::Base
   
   belongs_to :category
-  has_attached_file :image, :styles => { :thumb => "200>x200" }
+  has_attached_file :image, :styles => { :full => "600>x600", :thumb => "200>x200" }
   
   named_scope :ordered, :order => "sequence ASC"
   

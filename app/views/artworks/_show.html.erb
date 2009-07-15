@@ -3,7 +3,7 @@
   <h3 class="artwork_title"><%=h @artwork.title %></h3>
   <hr />
 
-  <%= image_tag @artwork.image.url, :id => 'full_artwork' %>
+  <%= image_tag @artwork.image.url(:full), :id => 'full_artwork' %>
   <div class="artwork_description">
     <%=h @artwork.description %>
   </div>
@@ -26,7 +26,8 @@
       :method => :get %>
     </span>
     <%- end -%>
-
   </div>
+  
+  <div class="clr"></div>
 </div>
 
