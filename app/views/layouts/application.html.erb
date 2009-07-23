@@ -12,7 +12,7 @@
 <body>
 
 <div id="main_wrapper">
-  <h1>Grace Chow</h1>
+  <%= image_tag 'gracechow_name.png', :alt => "Grace Chow", :id => 'logo' %>
   <%= render :partial => 'layouts/nav' %>
 
   <%- wrapper_class = gallery_related? ? 'gallery_wrapper' : 'info_wrapper' -%>
