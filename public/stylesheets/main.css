@@ -156,8 +156,8 @@ fieldset {
 }
 .artwork_thumbnail {
   border: 13px solid black;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
 }
 
 #hoverbox {
