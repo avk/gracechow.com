@@ -89,7 +89,7 @@ h2 { font-size: 1.6em; }
 h3 { font-size: 1.3em; }
 
 fieldset {
-  border: 1px solid #ccc;
+  border: 3px solid #aaa;
   margin: 1em 0;
   padding: 10px;
 }
