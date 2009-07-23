@@ -50,12 +50,12 @@ body {
       z-index: 10;
     }
     .navigation a:hover {
-      border-bottom: 5px solid black; /* linked to padding-bottom */
-      color: orange;
-      padding-bottom: 5px; /* linked to border-bottom */
+      border-bottom: 5px solid #FD405B; /* linked to padding-bottom */
+      color: #FD405B;
+      padding-bottom: 0; /* linked to border-bottom */
     }
     #info_navigation a:hover {
-      padding-bottom: 5px; /* linked to .navigation a:hover { border-bottom } */
+      padding-bottom: 0; /* linked to .navigation a:hover { border-bottom } */
     }
     .navigation .handle {
       bottom: 2px;
