@@ -68,10 +68,14 @@ class ArtworksController < ApplicationController
   # DELETE /artworks/1
   def destroy
     @artwork = Artwork.find(params[:id])
-    @artwork.destroy
 
     respond_to do |format|
-      format.html { redirect_to(artworks_url) }
+      if @artwork.destroy
+        flash[:notice] = "Artwork deleted."
+      else
+        flash[:error] = "Could not delete artwork."
+      end
+      format.html { redirect_to gallery_path(@gallery) }
     end
   end
   

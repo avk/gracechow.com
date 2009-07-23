@@ -163,6 +163,7 @@ fieldset {
 #hoverbox {
   height: auto;
   max-height: 700px;
+  position: relative;
   width: 900px;
 }
   #hoverbox .close {
@@ -198,6 +199,13 @@ fieldset {
   
   .artwork_description {
     padding-right: 10px;
+  }
+  .artwork_actions {
+    bottom: -3px;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    width: 100%;
   }
   
   .sequence {

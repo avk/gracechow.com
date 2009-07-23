@@ -52,12 +52,12 @@ class ArtworksControllerTest < ActionController::TestCase
   #   put :update, :gallery_id => @gallery.id, :id => artworks(:one).id, :artwork => { }
   #   assert_redirected_to artwork_path(assigns(:artwork))
   # end
-  # 
-  # test "should destroy artwork" do
-  #   assert_difference('Artwork.count', -1) do
-  #     delete :destroy, :gallery_id => @gallery.id, :id => artworks(:one).id
-  #   end
-  # 
-  #   assert_redirected_to artworks_path
-  # end
+  
+  test "should destroy artwork" do
+    assert_difference('Artwork.count', -1) do
+      delete :destroy, :gallery_id => @gallery.id, :id => @artworks.first.id
+    end
+    
+    assert_redirected_to gallery_path(@gallery)
+  end
 end
