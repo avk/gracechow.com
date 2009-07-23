@@ -8,7 +8,7 @@
     end %>
     <%= link_to_remote 'Delete', 
         :url => gallery_category_path(@gallery, category), 
-        :confirm => 'Are you sure?', 
+        :confirm => "Deleting the '#{h(category.name)}' category will delete all of it's artworks. Are you sure?", 
         :method => :delete %>
     <%= link_to 'Add Photos', new_gallery_artwork_path(@gallery, :category_id => category.id) %>
   </div>

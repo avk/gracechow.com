@@ -1,6 +1,6 @@
 <%= link_to 'Add Artwork', new_gallery_artwork_path(@gallery) %> | 
 <%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> | 
-<%= link_to 'Delete Gallery', @gallery, :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Delete Gallery', @gallery, :confirm => "Deleting the '#{h(@gallery.name)}' gallery will delete all of it's categories and artworks. Are you sure?", :method => :delete %>
 
 <br /><br />
 
