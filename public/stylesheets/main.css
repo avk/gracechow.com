@@ -43,9 +43,10 @@ body {
     }
     .navigation .current {
       background-color: white;
-      border: 1px solid orange;
-      border-bottom: 1px solid white;
+      border: 4px solid #FFBCBC;
+      border-bottom: none;
       color: #000;
+      margin-bottom: -3px;
       position: relative;
       z-index: 10;
     }
@@ -108,7 +109,7 @@ fieldset {
 
 /* Galleries */
 .gallery_wrapper {
-  border: 1px solid orange;
+  border: 4px solid #FFBCBC;
 }
 
 .info_wrapper {
