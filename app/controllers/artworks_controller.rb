@@ -21,7 +21,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/new
   def new
     @artwork = Artwork.new
-    @categories = @gallery.categories.ordered
+    @categories = @gallery.categories.ordered # FIXME: pull out into a before_filter
     if params[:category_id]
       @artwork.category = @categories.find(params[:category_id])
     end
@@ -39,7 +39,7 @@ class ArtworksController < ApplicationController
   # POST /artworks
   def create
     @artwork = Artwork.new(params[:artwork])
-    @categories = @gallery.categories
+    @categories = @gallery.categories # FIXME: pull out into a before_filter
 
     respond_to do |format|
       if @artwork.save
