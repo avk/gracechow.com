@@ -39,8 +39,13 @@ body {
       display: block;
       float: left;
       font-family: Helvetica, sans-serif;
-      padding: 8px 1em;
       text-decoration: none;
+    }
+    .navigation .current {
+      padding: 8px 9px 8px 19px;
+    }
+    .navigation a {
+      padding: 8px 19px;
     }
     #info_navigation a {
       padding: 8px 0.25em;
@@ -54,6 +59,10 @@ body {
       position: relative;
       z-index: 10;
     }
+    .navigation .current_text {
+      bottom: 4px;
+      position: relative;
+    }
     .navigation a:hover {
       border-bottom: 5px solid #FD405B; /* linked to padding-bottom */
       color: #FD405B;
@@ -63,10 +72,14 @@ body {
       padding-bottom: 0; /* linked to .navigation a:hover { border-bottom } */
     }
     .navigation .handle {
-      bottom: 2px;
       position: relative;
       right: 4px;
       z-index: 100;
+    }
+    .navigation .current .handle {
+      bottom: 13px;
+      left: 15px;
+      right: 0;
     }
 
 .flash {

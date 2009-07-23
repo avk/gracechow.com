@@ -6,11 +6,11 @@
 
 <ol id="galleries" class="navigation">
   <% Gallery.ordered.each do |gallery| %>
-    <li id="gallery_<%= gallery.id %>">
+    <li id="gallery_<%= gallery.id %>" class="<%= 'current' if (viewing_gallery? gallery) %>">
       <%- link_text = h(gallery.name) -%>
       
       <%- if viewing_gallery? gallery -%>
-        <span class='current'><%= link_text %></span>
+        <span class="current_text"><%= link_text %></span>
       <%- else -%>
         <%= link_to link_text, gallery %>
       <%- end -%>
