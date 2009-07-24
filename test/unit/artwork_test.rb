@@ -27,12 +27,12 @@ class ArtworkTest < ActiveSupport::TestCase
     end
   end
   
-  def test_should_require_a_description
-    assert_no_difference "Artwork.count" do
-      artwork = create_artwork(:description => "")
-      assert artwork.errors.on(:description), "allowing new artwork without a description"
-    end
-  end
+  # def test_should_require_a_description
+  #   assert_no_difference "Artwork.count" do
+  #     artwork = create_artwork(:description => "")
+  #     assert artwork.errors.on(:description), "allowing new artwork without a description"
+  #   end
+  # end
   
   def test_should_belong_to_a_category
     assert_no_difference "Artwork.count" do
