@@ -6,10 +6,15 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta content='noindex' name='robots' />
   <title>Grace Chow</title>
-  <%= stylesheet_link_tag 'reset-min', 'main', 'redbox', :cache => 'cached_styles' %>
-  <%= javascript_include_tag :defaults, 'redbox', :cache => 'cached_scripts' %>
+  <%= stylesheet_link_tag 'reset-min', 'main', :cache => 'cached_styles' %>
+  <%= javascript_include_tag :defaults, :cache => 'cached_scripts' %>
 </head>
 <body>
+
+<div id="lightbox_wrapper">
+  <div id="lightbox_background"></div>
+  <div id="lightbox_content"></div>
+</div>
 
 <div id="main_wrapper">
   <%= image_tag 'gracechow_name.png', :alt => "Grace Chow", :id => 'logo' %>
@@ -21,7 +26,7 @@
     <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
     
     <%= yield %>
-  </div>
+  </div>  
 </div>
 
 <%- if RAILS_ENV == 'production' -%>

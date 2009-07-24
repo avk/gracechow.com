@@ -1,5 +1,5 @@
 <div id="hoverbox">
-  <span class="close"><%= link_to_close_redbox 'x' %></span>
+  <span class="close"><a href="#" class="close" onclick="closeLightbox();">x</a></span>
   <h3 class="artwork_title"><%=h @artwork.title %></h3>
   <hr />
 
@@ -18,7 +18,10 @@
   <div class="sequence">
     <%- if @prev_artwork -%>
     <span id="prev_artwork">
-      <%= link_to_remote_redbox '&laquo;', 
+      <%= link_to_remote '&laquo;', 
+      :update => 'lightbox_content', 
+      :before => "lightboxLoading(true);", 
+      :complete => "resizeLightbox();", 
       :url => gallery_artwork_path(@gallery, @prev_artwork), 
       :method => :get %>
     </span>
@@ -28,7 +31,10 @@
 
     <%- if @next_artwork -%>
     <span id="next_artwork">
-      <%= link_to_remote_redbox '&raquo;', 
+      <%= link_to_remote '&raquo;', 
+      :update => 'lightbox_content', 
+      :before => "lightboxLoading(true);", 
+      :complete => "resizeLightbox();", 
       :url => gallery_artwork_path(@gallery, @next_artwork), 
       :method => :get %>
     </span>

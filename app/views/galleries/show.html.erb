@@ -12,7 +12,12 @@
     <%- category.artworks.ordered.each do |artwork| -%>
       <li>
         <%= 
-          link_to_remote_redbox content_tag('div', '&nbsp;', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), :url => gallery_artwork_path(@gallery, artwork), :method => :get
+          link_to_remote content_tag('div', '&nbsp;', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), 
+            :update => 'lightbox_content', 
+            :before => "lightboxLoading();", 
+            :complete => "resizeLightbox();", 
+            :url => gallery_artwork_path(@gallery, artwork), 
+            :method => :get
          %>
       </li>
     <% end -%>

@@ -160,6 +160,41 @@ fieldset {
   width: 125px;
 }
 
+#lightbox_wrapper {
+  display: none;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+  #lightbox_background {
+    background-color: #000;
+    color: transparent;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0.8;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+  }
+  #lightbox_content {
+    background-color: #fff;
+    color: black;
+    height: 50%;
+    left: 48%;
+    margin: 0;
+    opacity: 1;
+    padding: 8px;
+    position: absolute;
+    top: 48%;
+    width: 50%;
+    z-index: 1002;
+  }
+
 #hoverbox {
   height: auto;
   max-height: 700px;
