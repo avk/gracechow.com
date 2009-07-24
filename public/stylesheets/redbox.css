@@ -35,5 +35,5 @@
   text-align: left;
 /*  overflow: auto;*/
   margin: 0 auto;
-  position: fixed;
+  position: absolute;
 }
