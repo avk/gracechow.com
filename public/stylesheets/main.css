@@ -14,6 +14,8 @@ body {
   width: 960px;
 }
 #content_wrapper {
+  background-color: #f9f9f9;
+  color: #333;
   padding: 20px;
   position: relative;
   bottom: 1px;
@@ -51,7 +53,7 @@ body {
       padding: 8px 0.25em;
     }
     .navigation .current {
-      background-color: white;
+      background-color: #f9f9f9;
       border: 4px solid #FFBCBC;
       border-bottom: none;
       color: #000;
@@ -144,8 +146,17 @@ fieldset {
   margin-left: 25px;
 }
 
+.between {
+  background: transparent url(/images/hr_trans.png) no-repeat scroll center center;
+  border: none;
+  height: 40px;
+}
+
 .artworks {
+/*  border-top: 1px dotted #AAA;*/
   clear: both;
+  margin-top: 10px;
+  padding-top: 8px;
 }
 .artworks ol {
   margin-left: 40px;
@@ -160,8 +171,13 @@ fieldset {
   margin-left: 145px;
   position: relative;
 }
+.artwork_thumbnail_wrapper {
+  background-color: #FFF;
+  border: 1px dotted #CCC;
+  padding: 8px;
+}
 .artwork_thumbnail {
-  border: 13px solid black;
+  border: 4px solid #EEE;
   height: 125px;
   width: 125px;
 }
