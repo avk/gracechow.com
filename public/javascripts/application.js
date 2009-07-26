@@ -1,6 +1,16 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+// Closes the lightbox if the user hits "esc"
+Event.observe(window, 'load', function() {
+  Event.observe(document, 'keypress', function(e){
+    if (Event.KEY_ESC == e.keyCode) {
+      closeLightbox();
+    }
+  });
+});
+
+
 function lightboxLoading(hidePrevious) {
   // console.log("loading the lightbox...");
   if (hidePrevious) {
