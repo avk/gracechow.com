@@ -154,6 +154,12 @@ fieldset {
   float: left;
   margin: 20px 20px 0 0;
 }
+.artworks ol li .handle {
+  bottom: 7px;
+  float: right;
+  margin-left: 145px;
+  position: relative;
+}
 .artwork_thumbnail {
   border: 13px solid black;
   height: 125px;

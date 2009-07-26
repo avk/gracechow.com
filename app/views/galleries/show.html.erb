@@ -8,9 +8,11 @@
 <div class="artworks">
   <h2><%= h(category.name) %></h2>
   
-  <ol>
+  <%- works_in_category = "category_" + category.id.to_s + "_artworks" -%>
+  <ol id="<%= works_in_category %>">
     <%- category.artworks.ordered.each do |artwork| -%>
-      <li>
+      <li id="artwork_<%= artwork.id %>">
+        <sup class="handle">&deg;</sup>
         <%= 
           link_to_remote content_tag('div', '&nbsp;', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), 
             :update => 'lightbox_content', 
@@ -22,6 +24,8 @@
       </li>
     <% end -%>
   </ol>
+  
+  <%= sortable_element works_in_category, :url => reorder_gallery_artworks_path(@gallery, :category_id => category.id) %>
 </div>
 
 <div class="clr"></div>

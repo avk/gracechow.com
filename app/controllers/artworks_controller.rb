@@ -115,6 +115,39 @@ class ArtworksController < ApplicationController
       format.html { redirect_to gallery_path(@gallery) }
     end
   end
+
+  # POST /galleries/1/artworks/reorder
+  # AJAX
+  def reorder
+    artworks = params[ ("category_" + params[:category_id] + "_artworks").to_sym ]
+    
+    success = false
+    Gallery.transaction do
+      for i in 0...artworks.size do
+        Artwork.find( artworks[i] ).update_attribute(:sequence, i + 1)
+      end
+      success = true
+    end
+    
+    render :update do |page|
+      if success
+        flash[:notice] = "Reordered artworks"
+        page[:flash].replace :partial => 'layouts/flash', :locals => { :flash => flash }
+        page[:flash_notice].show
+        page[:flash_notice].visual_effect :highlight
+        page[:flash_notice].visual_effect :fade, :duration => 3
+        flash.clear
+      else
+        flash[:error] = "Could not reorder artworks"
+        page[:flash].replace :partial => 'layouts/flash', :locals => { :flash => flash }
+        page[:flash_error].show
+        page[:flash_error].visual_effect :highlight
+        page[:flash_error].visual_effect :fade, :duration => 3
+        flash.clear
+      end
+    end
+  end
+
   
 protected
 
