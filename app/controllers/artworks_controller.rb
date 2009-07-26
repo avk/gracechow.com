@@ -1,6 +1,8 @@
 class ArtworksController < ApplicationController
   
   before_filter :get_gallery
+  in_place_edit_for :artwork, :title
+  in_place_edit_for :artwork, :description
   
   # GET /artworks/1
   def show
@@ -64,6 +66,41 @@ class ArtworksController < ApplicationController
       end
     end
   end
+  
+  # in_place_editing method
+  # POST /galleries/1/artworks/1/set_artwork_title
+  def set_artwork_title
+    @artwork = Artwork.find(params[:id])
+    old_title = @artwork.title
+    new_title = params[:value]
+    @artwork.title = new_title
+    
+    respond_to do |wants|
+      if @artwork.save
+        wants.js { render :text => new_title }
+      else
+        wants.js { render :text => old_title }
+      end
+    end
+  end
+  
+  # in_place_editing method
+  # POST /galleries/1/artworks/1/set_artwork_description
+  def set_artwork_description
+    @artwork = Artwork.find(params[:id])
+    old_description = @artwork.description
+    new_description = params[:value]
+    @artwork.description = new_description
+    
+    respond_to do |wants|
+      if @artwork.save
+        wants.js { render :text => new_description }
+      else
+        wants.js { render :text => old_description }
+      end
+    end
+  end
+  
 
   # DELETE /artworks/1
   def destroy
