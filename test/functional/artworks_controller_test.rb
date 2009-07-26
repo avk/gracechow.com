@@ -47,11 +47,11 @@ class ArtworksControllerTest < ActionController::TestCase
   #   get :edit, :gallery_id => @gallery.id, :id => artworks(:one).id
   #   assert_response :success
   # end
-  # 
-  # test "should update artwork" do
-  #   put :update, :gallery_id => @gallery.id, :id => artworks(:one).id, :artwork => { }
-  #   assert_redirected_to artwork_path(assigns(:artwork))
-  # end
+  
+  test "should update artwork" do
+    put :update, :gallery_id => @gallery.id, :id => @artworks.first.id, :artwork => { :title => "uniq" }
+    # assert_redirected_to artwork_path(assigns(:artwork))
+  end
   
   test "should destroy artwork" do
     assert_difference('Artwork.count', -1) do

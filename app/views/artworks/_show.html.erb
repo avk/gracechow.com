@@ -1,6 +1,6 @@
 <div id="hoverbox">
   <span class="close"><a href="#" class="close" onclick="closeLightbox();">x</a></span>
-  <h3 class="artwork_title"><%=h @artwork.title %></h3>
+  <%= edit_in_place([@gallery, @artwork], :title, :tag => :h3) %>
   <hr />
 
   <%= image_tag @artwork.image.url(:full), :id => 'full_artwork' %>

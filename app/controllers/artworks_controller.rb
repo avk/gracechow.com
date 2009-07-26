@@ -58,7 +58,7 @@ class ArtworksController < ApplicationController
     respond_to do |format|
       if @artwork.update_attributes(params[:artwork])
         flash[:notice] = 'Artwork was successfully updated.'
-        format.html { redirect_to(@artwork) }
+        format.html { redirect_to(@gallery) }
       else
         format.html { render :action => "edit" }
       end
