@@ -30,7 +30,9 @@
   <%= sortable_element works_in_category, :url => reorder_gallery_artworks_path(@gallery, :category_id => category.id) %>
 </div>
 
-<%- unless category == @categories.last -%>
+<%- if category == @categories.last -%>
+<div class="clr"></div>
+<%- else -%>
 <hr class="clr between" />
 <% end -%>
 
