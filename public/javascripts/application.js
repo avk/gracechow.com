@@ -10,15 +10,20 @@ Event.observe(window, 'load', function() {
   });
 });
 
+startAnchor = 'top';
 
-function lightboxLoading(hidePrevious) {
+function lightboxLoading(hidePrevious, artworkAnchor) {
   // console.log("loading the lightbox...");
   if (hidePrevious) {
     resetLightboxContent();
   }
+  if (artworkAnchor) {
+    startAnchor = artworkAnchor;
+  }
   $('lightbox_wrapper').style.display='block';
   $('lightbox_content').style.left='48%';
   $('lightbox_content').style.top='48%';
+  location.href = "#top";
 }
 
 // from Craig Ambrose's Redbox plugin
@@ -54,6 +59,8 @@ function closeLightbox() {
   // console.log("closing the lightbox...");
   $('lightbox_wrapper').style.display='none';
   resetLightboxContent();
+  location.href = "#" + startAnchor;
+  return false;
 }
 
 function resetLightboxContent() {

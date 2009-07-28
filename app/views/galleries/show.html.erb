@@ -12,12 +12,13 @@
   <ol id="<%= works_in_category %>">
     <%- category.artworks.ordered.each do |artwork| -%>
       <li id="artwork_<%= artwork.id %>">
+        <a name="artwork_<%= artwork.id %>"></a>
         <sup class="handle">&deg;</sup>
         <div class="artwork_thumbnail_wrapper">
           <%= 
             link_to_remote content_tag('div', '&nbsp;', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), 
               :update => 'lightbox_content', 
-              :before => "lightboxLoading();", 
+              :before => "lightboxLoading(false, 'artwork_#{ artwork.id }');", 
               :complete => "resizeLightbox();", 
               :url => gallery_artwork_path(@gallery, artwork), 
               :method => :get
