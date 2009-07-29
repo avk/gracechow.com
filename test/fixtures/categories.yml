@@ -16,10 +16,10 @@ skirts:
   id: 3
   name: Skirts
   gallery_id: 2
-  sequence: 1
+  sequence: 3
   
 sepia:
   id: 4
   name: Sepia
   gallery_id: 1
-  sequence: 1
+  sequence: 4

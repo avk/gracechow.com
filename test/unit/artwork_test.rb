@@ -80,6 +80,19 @@ class ArtworkTest < ActiveSupport::TestCase
     assert original_sequence == artwork.sequence, "setting a new sequence on artwork updates"
   end
   
+  def test_should_update_sequence_when_updating_category
+    old_category = categories(:paintings)
+    new_category = categories(:sepia)
+    artwork = old_category.artworks.ordered.last
+    expected_sequence = new_category.artworks.size + 1
+    
+    artwork.category = new_category
+    artwork.save
+    artwork.reload
+    
+    assert artwork.sequence == expected_sequence, "not setting a new sequence when updating artwork category"
+  end
+  
   def test_should_be_able_to_fetch_previous_artwork_within_its_category
     artwork = artworks(:two)
     assert Artwork.before(artwork) == artworks(:one)
@@ -99,5 +112,7 @@ class ArtworkTest < ActiveSupport::TestCase
     artwork = artworks(:three)
     assert Artwork.after(artwork) == nil
   end
+  
+  
 
 end

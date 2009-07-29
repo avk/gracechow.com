@@ -14,6 +14,7 @@ class Artwork < ActiveRecord::Base
   
   attr_protected :sequence
   before_create :set_sequence
+  before_update :set_sequence, :if => :category_changed?
   
   # the artwork sequentially before this one (in it's respective category)
   def self.before(artwork)
@@ -29,6 +30,9 @@ class Artwork < ActiveRecord::Base
     (my_position == all.size - 1) ? nil : all[ (my_position+1) % all.size ]
   end
   
+  def category_changed?
+    self.changed.include?('category_id') or self.changed.include?('category')
+  end
   
 private
 

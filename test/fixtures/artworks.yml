@@ -20,3 +20,10 @@ three:
   description: could not happen anywhere but here
   category_id: 2
   sequence: 3
+
+four:
+  title: 'Clueless'
+  description: Alicia Silverstone
+  category: sepia
+  sequence: 1
+  
