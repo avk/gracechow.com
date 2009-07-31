@@ -173,7 +173,7 @@ fieldset {
 }
 .artwork_thumbnail_wrapper {
   background-color: #FFF;
-  border: 1px dotted #CCC;
+  border: 1px dotted #999;
   padding: 8px;
 }
 .artwork_thumbnail {
