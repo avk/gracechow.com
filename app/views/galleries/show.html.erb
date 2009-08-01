@@ -1,8 +1,10 @@
-<%= link_to 'Add Artwork', new_gallery_artwork_path(@gallery) %> | 
-<%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> | 
-<%= link_to 'Delete Gallery', @gallery, :confirm => "Deleting the '#{h(@gallery.name)}' gallery will delete all of it's categories and artworks. Are you sure?", :method => :delete %>
+<%- if logged_in? -%>
+  <%= link_to 'Add Artwork', new_gallery_artwork_path(@gallery) %> | 
+  <%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> | 
+  <%= link_to 'Delete Gallery', @gallery, :confirm => "Deleting the '#{h(@gallery.name)}' gallery will delete all of it's categories and artworks. Are you sure?", :method => :delete %>
 
-<br /><br />
+  <br /><br />
+<% end -%>
 
 <%- @categories.each do |category| -%>
 <div class="artworks">
@@ -13,7 +15,11 @@
     <%- category.artworks.ordered.each do |artwork| -%>
       <li id="artwork_<%= artwork.id %>">
         <a name="artwork_<%= artwork.id %>"></a>
-        <sup class="handle">&deg;</sup>
+        
+        <%- if logged_in? -%>
+          <sup class="handle">&deg;</sup>
+        <% end -%>
+        
         <div class="artwork_thumbnail_wrapper">
           <%= 
             link_to_remote content_tag('div', '&nbsp;', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), 
@@ -28,7 +34,9 @@
     <% end -%>
   </ol>
   
-  <%= sortable_element works_in_category, :url => reorder_gallery_artworks_path(@gallery, :category_id => category.id) %>
+  <%- if logged_in? -%>
+    <%= sortable_element works_in_category, :url => reorder_gallery_artworks_path(@gallery, :category_id => category.id) %>
+  <% end -%>
 </div>
 
 <%- if category == @categories.last -%>
