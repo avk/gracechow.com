@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName "Only for my babycake"
-AuthUserFile /home/avk/public_html/gracechow.com/current/pw
-
-require user graciewacie
