@@ -6,7 +6,8 @@
   <%= image_tag @artwork.image.url(:full), :id => 'full_artwork' %>
   
   <%- @artwork.description = '~' if @artwork.description.blank? -%>
-  <%= in_place_editor_field :artwork, 'description', { }, { :rows => 10, :cols => 20, :save_text => 'save' } %>
+  <%= in_place_editor_field :artwork, 'description', { :dont_escape => true }, { :rows => 10, :cols => 20, :save_text => 'save', :load_text_url => textilized_description_gallery_artwork_path(@gallery, @artwork) } %>
+  <p style="font-size:0.5em">powered by <a href="http://www.textism.com/tools/textile/">Textile</a></p>
   
   <div class="artwork_actions">
     <%= link_to 'Delete', gallery_artwork_path(@gallery, @artwork), 

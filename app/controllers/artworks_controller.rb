@@ -3,6 +3,7 @@ class ArtworksController < ApplicationController
   before_filter :get_gallery
   in_place_edit_for :artwork, :title
   in_place_edit_for :artwork, :description
+  skip_before_filter :verify_authenticity_token, :only => [ :set_artwork_title, :set_artwork_description ]
   
   # GET /artworks/1
   def show
@@ -77,9 +78,9 @@ class ArtworksController < ApplicationController
     
     respond_to do |wants|
       if @artwork.save
-        wants.js { render :text => new_title }
+        wants.js { render :text => h(new_title) }
       else
-        wants.js { render :text => old_title }
+        wants.js { render :text => h(old_title) }
       end
     end
   end
@@ -88,18 +89,21 @@ class ArtworksController < ApplicationController
   # POST /galleries/1/artworks/1/set_artwork_description
   def set_artwork_description
     @artwork = Artwork.find(params[:id])
-    old_description = @artwork.description
-    new_description = params[:value]
-    @artwork.description = new_description
+    @artwork.update_attribute(:description, params[:value])
     
     respond_to do |wants|
-      if @artwork.save
-        wants.js { render :text => new_description }
-      else
-        wants.js { render :text => old_description }
-      end
+      desc = @artwork.description
+      desc = '~' if desc.blank?
+      wants.js { render :text => desc }
     end
   end
+  
+  # in_place_editing method
+  # GET /galleries/1/artworks/1/textilized_description
+  def textilized_description
+    render :text => Artwork.find(params[:id]).description(:source)
+  end
+  
   
 
   # DELETE /artworks/1

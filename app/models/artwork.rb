@@ -5,6 +5,8 @@ class Artwork < ActiveRecord::Base
   
   named_scope :ordered, :order => "sequence ASC"
   
+  acts_as_textiled :description
+  
   validates_presence_of :title
   validates_uniqueness_of :title
   # validates_presence_of :description

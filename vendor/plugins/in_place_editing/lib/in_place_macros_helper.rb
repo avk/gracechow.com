@@ -74,7 +74,11 @@ module InPlaceMacrosHelper
                    :id => "#{object}_#{method}_#{instance_tag.object.id}_in_place_editor",
                    :class => "in_place_editor_field"}.merge!(tag_options)
     in_place_editor_options[:url] = in_place_editor_options[:url] || url_for({ :action => "set_#{object}_#{method}", :id => instance_tag.object.id })
-    tag = content_tag(tag_options.delete(:tag), h(instance_tag.value(instance_tag.object)),tag_options)
+    content = instance_tag.value(instance_tag.object)
+    unless tag_options.delete(:dont_escape)
+      content = h(content)
+    end
+    tag = content_tag(tag_options.delete(:tag), content, tag_options)
     return tag + in_place_editor(tag_options[:id], in_place_editor_options)
   end
 end

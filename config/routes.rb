@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
     galleries.resources :categories, 
       :collection => { :reorder => :post }
     galleries.resources :artworks, 
-      :member => { :set_artwork_title => :post, :set_artwork_description => :post }, 
+      :member => { :set_artwork_title => :post, :set_artwork_description => :post, :textilized_description => :get }, 
       :collection => { :reorder => :post }
   end
 
