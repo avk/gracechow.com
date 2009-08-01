@@ -17,7 +17,15 @@
 </div>
 
 <div id="main_wrapper">
-  <%= image_tag 'gracechow_name.png', :alt => "Grace Chow", :id => 'logo' %>
+  <div id="header">
+    <%= image_tag 'gracechow_name.png', :alt => "Grace Chow", :id => 'logo' %>
+    <% if logged_in? -%>
+      <div id="logged_in">
+        Welcome back, Grace ( <%= link_to "log out", logout_path, { :title => "log out" } %> )
+      </div>
+    <% end -%>
+  </div>
+  <div class="clr"></div>
   <%= render :partial => 'layouts/nav' %>
 
   <%- wrapper_class = gallery_related? ? 'gallery_wrapper' : 'info_wrapper' -%>

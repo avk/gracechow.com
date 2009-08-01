@@ -13,6 +13,12 @@ strong {
 
 #logo {
   display: block;
+  float: left;
+}
+#logged_in {
+  color: #999;
+  float: right;
+  font-size: 0.7em;
 }
 
 #main_wrapper {
@@ -140,7 +146,7 @@ fieldset {
 }
 
 .info_wrapper {
-  border: 1px solid yellow;
+  border: 1px solid #FFBCBC;
 }
 
 /* Galleries / Edit */
