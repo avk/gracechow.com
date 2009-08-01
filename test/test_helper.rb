@@ -35,6 +35,7 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include AuthenticatedTestHelper
   
   def valid_options_for_gallery
     { :name => "Artwork" + Time.now.to_s }
