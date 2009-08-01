@@ -298,3 +298,9 @@ fieldset {
       color: #ccc;
     }
 
+#footer {
+  color: #777777;
+  font-size: 0.7em;
+  margin-top: 5px;
+  text-align: center;
+}
