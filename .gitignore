@@ -10,4 +10,3 @@ db/*.sqlite3
 db/schema.rb
 coverage/*
 public/system/*
-config/initializers/site_keys.rb
