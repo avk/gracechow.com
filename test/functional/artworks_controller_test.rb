@@ -10,11 +10,18 @@ class ArtworksControllerTest < ActionController::TestCase
   
 
   test "should get new" do
+    login_as :grace
     get :new, :gallery_id => @gallery.id
     assert_response :success
   end
   
+  test "should not get new if not logged in" do
+    get :new, :gallery_id => @gallery.id
+    assert_redirected_to new_session_path
+  end
+
   test "should get new with category already picked" do
+    login_as :grace
     category = @gallery.categories.first
     get :new, :gallery_id => @gallery.id, :category_id => category.id
     assert assigns(:artwork).category == category
@@ -22,11 +29,20 @@ class ArtworksControllerTest < ActionController::TestCase
   end
 
   test "should create artwork" do
+    login_as :grace
     assert_difference('Artwork.count') do
       post :create, :gallery_id => @gallery.id, :artwork => valid_options_for_artwork
     end
 
     assert_redirected_to gallery_path(@gallery)
+  end
+
+  test "should not create artwork if not logged in" do
+    assert_no_difference('Artwork.count') do
+      post :create, :gallery_id => @gallery.id, :artwork => valid_options_for_artwork
+    end
+
+    assert_redirected_to new_session_path
   end
 
   test "should show artwork" do
@@ -48,16 +64,25 @@ class ArtworksControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
   
-  test "should update artwork" do
-    put :update, :gallery_id => @gallery.id, :id => @artworks.first.id, :artwork => { :title => "uniq" }
-    # assert_redirected_to artwork_path(assigns(:artwork))
-  end
+  # test "should update artwork" do
+  #   put :update, :gallery_id => @gallery.id, :id => @artworks.first.id, :artwork => { :title => "uniq" }
+  #   # assert_redirected_to artwork_path(assigns(:artwork))
+  # end
   
   test "should destroy artwork" do
+    login_as :grace
     assert_difference('Artwork.count', -1) do
       delete :destroy, :gallery_id => @gallery.id, :id => @artworks.first.id
     end
     
     assert_redirected_to gallery_path(@gallery)
+  end
+  
+  test "should not destroy artwork if not logged in" do
+    assert_no_difference('Artwork.count', -1) do
+      delete :destroy, :gallery_id => @gallery.id, :id => @artworks.first.id
+    end
+    
+    assert_redirected_to new_session_path
   end
 end

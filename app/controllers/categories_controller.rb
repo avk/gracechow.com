@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+
+  before_filter :login_required
   
   # POST /galleries/1/categories
   def create

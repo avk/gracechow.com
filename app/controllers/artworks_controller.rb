@@ -1,9 +1,11 @@
 class ArtworksController < ApplicationController
   
   before_filter :get_gallery
+  before_filter :login_required, :except => [ :show ]
+  skip_before_filter :verify_authenticity_token, :only => [ :set_artwork_title, :set_artwork_description ]
+  
   in_place_edit_for :artwork, :title
   in_place_edit_for :artwork, :description
-  skip_before_filter :verify_authenticity_token, :only => [ :set_artwork_title, :set_artwork_description ]
   
   # GET /artworks/1
   def show
@@ -34,11 +36,11 @@ class ArtworksController < ApplicationController
     end
   end
 
-  # GET /artworks/1/edit
-  def edit
-    @artwork = Artwork.find(params[:id])
-  end
-
+  # # GET /artworks/1/edit
+  # def edit
+  #   @artwork = Artwork.find(params[:id])
+  # end
+  
   # POST /artworks
   def create
     @artwork = Artwork.new(params[:artwork])
@@ -54,19 +56,19 @@ class ArtworksController < ApplicationController
     end
   end
 
-  # PUT /artworks/1
-  def update
-    @artwork = Artwork.find(params[:id])
-
-    respond_to do |format|
-      if @artwork.update_attributes(params[:artwork])
-        flash[:notice] = 'Artwork was successfully updated.'
-        format.html { redirect_to(@gallery) }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
-  end
+  # # PUT /artworks/1
+  # def update
+  #   @artwork = Artwork.find(params[:id])
+  # 
+  #   respond_to do |format|
+  #     if @artwork.update_attributes(params[:artwork])
+  #       flash[:notice] = 'Artwork was successfully updated.'
+  #       format.html { redirect_to(@gallery) }
+  #     else
+  #       format.html { render :action => "edit" }
+  #     end
+  #   end
+  # end
   
   # in_place_editing method
   # POST /galleries/1/artworks/1/set_artwork_title

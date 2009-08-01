@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
   
-  cache_sweeper :gallery_sweeper, :only => [:create, :update, :destroy, :reorder]
+  cache_sweeper :gallery_sweeper, :only => [ :create, :update, :destroy, :reorder ]
+  before_filter :login_required, :except => [ :index, :show ]
   
   # GET /galleries
   # GET /galleries.xml
