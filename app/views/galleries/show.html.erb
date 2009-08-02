@@ -1,3 +1,4 @@
+<%- @title = @gallery.name + ' Gallery' -%>
 <%- if logged_in? -%>
   <%= link_to 'Add Artwork', new_gallery_artwork_path(@gallery) %> | 
   <%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> | 
