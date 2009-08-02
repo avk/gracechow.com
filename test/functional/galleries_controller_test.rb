@@ -1,12 +1,6 @@
 require 'test_helper'
 
 class GalleriesControllerTest < ActionController::TestCase
-  test "should get index" do
-    login_as :grace
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:galleries)
-  end
 
   test "should get new" do
     login_as :grace

@@ -3,17 +3,6 @@ class GalleriesController < ApplicationController
   cache_sweeper :gallery_sweeper, :only => [ :create, :update, :destroy, :reorder ]
   before_filter :login_required, :except => [ :index, :show ]
   
-  # GET /galleries
-  # GET /galleries.xml
-  def index
-    @galleries = Gallery.ordered
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @galleries }
-    end
-  end
-
   # GET /galleries/1
   # GET /galleries/1.xml
   def show
