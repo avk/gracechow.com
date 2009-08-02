@@ -153,6 +153,8 @@ fieldset {
   background: transparent url(/images/hr_trans.png) no-repeat scroll center center;
   border: none;
   height: 40px;
+  position: relative;
+  top: 15px;
 }
 .head_room {
   margin-top: 20px;
