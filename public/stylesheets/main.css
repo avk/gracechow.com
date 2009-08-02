@@ -4,11 +4,8 @@ body {
   font-size: 1.2em;
 }
 
-em { 
-  font-style: italic; 
-}
-strong {
-  font-weight: bold;
+a, a:visited {
+  color: #FD405B;
 }
 
 #logo {
@@ -97,6 +94,9 @@ strong {
       left: 21px;
       right: 0;
     }
+    .navigation .last_tab {
+      margin-right: 0;
+    }
 
 .flash {
   border: 1px solid;
@@ -121,6 +121,8 @@ strong {
 h1 { font-size: 2em; }
 h2 { font-size: 1.6em; }
 h3 { font-size: 1.3em; }
+em { font-style: italic; }
+strong { font-weight: bold; }
 
 fieldset {
   border: 3px solid #aaa;
@@ -135,9 +137,30 @@ fieldset {
 .clr {
   clear: both;
 }
+
 .handle {
   cursor: move;
 }
+
+.centered {
+  text-align: center;
+}
+.underline {
+  text-decoration: underline;
+}
+
+.between {
+  background: transparent url(/images/hr_trans.png) no-repeat scroll center center;
+  border: none;
+  height: 40px;
+}
+.head_room {
+  margin-top: 20px;
+}
+.leg_room {
+  margin-bottom: 20px;
+}
+
 
 
 /* Galleries */
@@ -158,12 +181,6 @@ fieldset {
 }
 #edit_gallery_categories {
   margin-left: 25px;
-}
-
-.between {
-  background: transparent url(/images/hr_trans.png) no-repeat scroll center center;
-  border: none;
-  height: 40px;
 }
 
 .artworks {
@@ -296,6 +313,57 @@ fieldset {
       text-decoration: none;
       color: #ccc;
     }
+
+
+
+/* About */
+
+#about {
+  height: 800px;
+}
+
+#profile {
+  float: left;
+  width: 250px;
+}
+
+#quickbits {
+  background-color: #FFF;
+  border: 1px dotted #999;
+  margin: 0 0 20px 275px;
+  padding: 10px;
+  width: 50%;
+}
+  #quickbits ul {
+    margin-left: 55px;
+  }
+    #quickbits ul li {
+      list-style: lower-roman outside;
+    }
+
+#bio {
+  margin-left: 275px;
+}
+  #bio p {
+    margin: 25px 0;
+  }
+
+
+
+/* Contact */
+
+.contact_methods {
+  margin: 0 auto;
+  text-align: left;
+  width: 30%;
+}
+.contact {
+  margin: 10px 0;
+}
+
+
+
+/* Footer */
 
 #footer {
   color: #777777;

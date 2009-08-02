@@ -1,7 +1,11 @@
 <%# cache 'navigation' do %>
 <ol id="info_navigation" class="navigation">
-  <li><a href="#">About</a></li>
-  <li><a href="#">Contact</a></li>
+  <li class="<%= 'current' if current_page?(about_path) %>">
+    <%= link_to_unless_current "About", about_path do "<span class='current_text'>About</span>" end %>
+  </li>
+  <li class="<%= 'current' if current_page?(contact_path) %> last_tab">
+    <%= link_to_unless_current "Contact", contact_path do "<span class='current_text'>Contact</span>" end %>
+  </li>
 </ol>
 
 <ol id="galleries" class="navigation">
