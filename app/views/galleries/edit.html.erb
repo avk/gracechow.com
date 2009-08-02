@@ -23,7 +23,7 @@
   
   <%= render :partial => 'categories/sortable_categories' %>
   
-  <br />
+  <hr class="clr" />
   <%- remote_form_for [@gallery, @category] do |f| -%>
     <%= f.label :name, "New" %>
     &nbsp;&nbsp;
