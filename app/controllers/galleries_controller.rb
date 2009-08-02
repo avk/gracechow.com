@@ -17,7 +17,8 @@ class GalleriesController < ApplicationController
   # GET /galleries/1
   # GET /galleries/1.xml
   def show
-    @gallery = Gallery.find(params[:id])
+    # map.root points to this action without providing an id
+    @gallery = (params[:id]) ? Gallery.find(params[:id]) : Gallery.ordered.first
     @categories = @gallery.categories.ordered.find(:all, :include => :artworks)
 
     respond_to do |format|

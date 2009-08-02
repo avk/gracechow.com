@@ -60,4 +60,14 @@ class GalleryTest < ActiveSupport::TestCase
     assert original_sequence == gallery.sequence, "setting a new sequence on gallery updates"
   end
 
+  test "first gallery should be able to know that it's first" do
+    gallery = Gallery.ordered.first
+    assert gallery.first?
+  end
+  
+  test "second gallery should return false for first" do
+    gallery = Gallery.ordered[1]
+    assert !gallery.first?
+  end
+
 end

@@ -10,6 +10,10 @@ class Gallery < ActiveRecord::Base
   attr_protected :sequence
   before_create :set_sequence
   
+  def first?
+    self == Gallery.ordered.first
+  end
+  
 private
 
   def set_sequence

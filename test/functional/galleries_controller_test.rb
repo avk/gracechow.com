@@ -40,6 +40,12 @@ class GalleriesControllerTest < ActionController::TestCase
     get :show, :id => galleries(:photos).id
     assert_response :success
   end
+  
+  test "should show first gallery if no id provided" do
+    get :show
+    assert_response :success
+    assert assigns(:gallery), Gallery.ordered.first
+  end
 
   test "should get edit" do
     login_as :grace
