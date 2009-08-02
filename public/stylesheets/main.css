@@ -54,9 +54,6 @@ a, a:visited {
       font-size: 0.9em;
       text-decoration: none;
     }
-    .navigation .current {
-      padding: 8px 15px;
-    }
     .navigation a {
       padding: 8px 19px;
     }
@@ -64,17 +61,17 @@ a, a:visited {
       padding: 8px 0.25em;
     }
     .navigation .current {
-      background-color: #f9f9f9;
-      border: 4px solid #FFBCBC;
-      border-bottom: none;
+      background: #f9f9f9 url(/images/tab_top_right.png) top right no-repeat;
       color: #000;
       margin-bottom: -3px;
       position: relative;
       z-index: 10;
     }
     .navigation .current_text {
-      bottom: 4px;
-      position: relative;
+      background: transparent url(/images/tab_top_left.png) top left no-repeat;
+      padding: 0 1.5em;
+      line-height: 2.5em;
+      float: left;
     }
     .navigation a:hover {
       border-bottom: 5px solid #FD405B; /* linked to padding-bottom */
@@ -83,16 +80,6 @@ a, a:visited {
     }
     #info_navigation a:hover {
       padding-bottom: 0; /* linked to .navigation a:hover { border-bottom } */
-    }
-    .navigation .handle {
-      position: relative;
-      right: 4px;
-      z-index: 100;
-    }
-    .navigation .current .handle {
-      bottom: 17px;
-      left: 21px;
-      right: 0;
     }
     .navigation .last_tab {
       margin-right: 0;
