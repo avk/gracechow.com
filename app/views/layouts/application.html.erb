@@ -31,12 +31,23 @@
   <%= render :partial => 'layouts/nav' %>
 
   <%- wrapper_class = gallery_related? ? 'gallery_wrapper' : 'info_wrapper' -%>
+  <%- 
+    if current_page?(root_path) or viewing_gallery?(Gallery.ordered.first)
+      top_id = 'rounded_right'
+    elsif current_page?(contact_path)
+      top_id = 'rounded_left'
+    else
+      top_id = 'content_top'
+    end
+   -%>
   
+  <div id="<%= top_id %>"></div>
   <div id="content_wrapper" class="<%= wrapper_class %>">
     <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
     
     <%= yield %>
   </div>
+  <div id="content_bottom"></div>
   
   <div id="footer">
     Copyright &copy; 2001-2009 Grace Chow
