@@ -94,17 +94,21 @@ a, a:visited {
       padding: 8px 0.25em;
     }
     .navigation .current {
-      background: #f9f9f9 url(/images/tab_top_right.png) top right no-repeat;
+      background: transparent url(/images/tab_top_right.png) top right no-repeat;
       color: #000;
+      left: 23px; /* depends on .current_text tab_top_left width */
+      margin-right: 23px; /* depends on .current_text tab_top_left width */
       margin-bottom: -4px;
       position: relative;
       z-index: 10;
     }
     .navigation .current_text {
       background: transparent url(/images/tab_top_left.png) top left no-repeat;
-      padding: 0 1.5em;
+      padding-left: 23px; /* depends on tab_top_left width */
       line-height: 2.5em;
       float: left;
+      position: relative;
+      right: 23px; /* depends on tab_top_left width */
     }
     .navigation a:hover {
       border-bottom: 5px solid #FD405B; /* linked to padding-bottom */
