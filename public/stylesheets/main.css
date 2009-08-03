@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Arctic';
+  src: url('arctic.ttf') format('truetype');  
+}
+@font-face {
+  font-family: 'Gabriell';
+  src: url('Gabriell.otf') format('opentype');
+}
+
 /* Layout */
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -74,8 +83,8 @@ a, a:visited {
       color: #666;
       display: block;
       float: left;
-      font-family: Verdana, Helvetica, sans-serif;
-      font-size: 0.9em;
+      font-family: 'Arctic', Verdana, Helvetica, sans-serif;
+      font-size: 1.1em;
       text-decoration: none;
     }
     .navigation a {
@@ -129,6 +138,7 @@ a, a:visited {
 
 
 /* Reusable bits */
+h1, h2, h3 { font-family: Gabriell, Verdana, sans-serif; }
 h1 { font-size: 2em; }
 h2 { font-size: 1.6em; }
 h3 { font-size: 1.3em; }
@@ -203,6 +213,9 @@ fieldset {
   clear: both;
   margin-top: 10px;
   padding-top: 8px;
+}
+.artworks h2 {
+  font-family: Gabriell, Verdana, sans-serif;
 }
 .artworks ol {
   margin-left: 40px;
