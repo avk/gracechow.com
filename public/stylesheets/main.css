@@ -7,6 +7,10 @@
   src: url('Gabriell.otf') format('opentype');
 }
 
+html {
+  background: transparent url(/images/retro4.jpg) repeat-y fixed top center;
+}
+
 /* Layout */
 body {
   font-family: Helvetica, Arial, sans-serif;
