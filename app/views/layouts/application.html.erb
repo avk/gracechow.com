@@ -7,6 +7,7 @@
   <title>
     <%= @title.to_s + ' | ' if (@title and not @title.blank?) %> Grace Chow
   </title>
+  <link rel="shortcut icon" href="favicon.ico" />
   <%= stylesheet_link_tag 'reset-min', 'main', :cache => 'cached_styles' %>
   <%= javascript_include_tag :defaults, :cache => 'cached_scripts' %>
 </head>
