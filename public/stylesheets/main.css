@@ -119,7 +119,6 @@ a, a:visited {
       padding-bottom: 0; /* linked to .navigation a:hover { border-bottom } */
     }
     .navigation .last_tab {
-      margin-right: 0;
     }
 
 .flash {
