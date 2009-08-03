@@ -20,6 +20,7 @@ a, a:visited {
 #logo {
   display: block;
   float: left;
+  margin-bottom: 10px;
 }
 #logged_in {
   color: #999;
