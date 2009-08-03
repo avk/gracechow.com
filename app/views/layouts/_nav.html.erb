@@ -1,10 +1,10 @@
 <%# cache 'navigation' do %>
 <ol id="info_navigation" class="navigation">
   <li class="<%= 'current' if current_page?(about_path) %>">
-    <%= link_to_unless_current "About", about_path do "<span class='current_text'>About</span>" end %>
+    <%= link_to_unless_current "about", about_path do "<span class='current_text'>About</span>" end %>
   </li>
   <li class="<%= 'current' if current_page?(contact_path) %> last_tab">
-    <%= link_to_unless_current "Contact", contact_path do "<span class='current_text'>Contact</span>" end %>
+    <%= link_to_unless_current "contact", contact_path do "<span class='current_text'>Contact</span>" end %>
   </li>
 </ol>
 
