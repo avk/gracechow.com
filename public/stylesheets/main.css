@@ -13,6 +13,7 @@ html {
 
 /* Layout */
 body {
+  background: transparent url(/images/huge_swirl.png) no-repeat fixed top left;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.2em;
 }
@@ -36,19 +37,20 @@ a, a:visited {
   margin: 0 auto 2em auto;
   padding: 20px;
   width: 960px;
+  z-index: 2;
 }
 #content_top {
-  background: #f9f9f9 url(/images/top_rounded.png) top center no-repeat;
+  background: transparent url(/images/top_rounded.png) top center no-repeat;
   display: block;
   height: 20px;
 }
 #rounded_right {
-  background: #f9f9f9 url(/images/top_rounded_right.png) top right no-repeat;
+  background: transparent url(/images/top_rounded_right.png) top right no-repeat;
   display: block;
   height: 20px;
 }
 #rounded_left {
-  background: #f9f9f9 url(/images/top_rounded_left.png) top left no-repeat;
+  background: transparent url(/images/top_rounded_left.png) top left no-repeat;
   display: block;
   height: 20px;
 }
@@ -60,7 +62,7 @@ a, a:visited {
   bottom: 1px;
 }
 #content_bottom {
-  background: #f9f9f9 url(/images/bottom_rounded.png) bottom center no-repeat;
+  background: transparent url(/images/bottom_rounded.png) bottom center no-repeat;
   bottom: 20px;
   display: block;
   height: 20px;
@@ -405,4 +407,10 @@ fieldset {
   font-size: 0.7em;
   margin-top: 5px;
   text-align: center;
+}
+
+#swirl {
+  bottom: 0;
+  position: fixed;
+  right: 0;
 }
