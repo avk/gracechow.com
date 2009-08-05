@@ -23,7 +23,7 @@
         
         <div class="artwork_thumbnail_wrapper">
           <%= 
-            link_to_remote content_tag('div', '&nbsp;', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), 
+            link_to_remote content_tag('div', '', {:class => 'artwork_thumbnail', :style => "background: transparent url('#{ artwork.image.url(:thumb) }') no-repeat center center;"}), 
               :update => 'lightbox_content', 
               :before => "lightboxLoading(false, 'artwork_#{ artwork.id }');", 
               :complete => "resizeLightbox();", 
