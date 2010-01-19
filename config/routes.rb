@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.about '/about', :controller => 'users', :action => 'about'
   map.contact '/contact', :controller => 'users', :action => 'contact'
+  map.resume '/Grace_Chow_Resume_20100118.pdf', :controller => 'not_a_controller', :path => '/Grace_Chow_Resume_20100118.pdf'
   
   map.resources :users
   map.resource :session
