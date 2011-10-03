@@ -77,6 +77,8 @@ a, a:visited {
 }
 #info_navigation {
   float :right;
+  position: relative;
+  top: 45px;
 }
   .navigation li {
     border-bottom: none;
@@ -97,7 +99,9 @@ a, a:visited {
       padding: 8px 19px;
     }
     #info_navigation a {
+      color: #000;
       padding: 8px 0.25em;
+      text-decoration: underline;
     }
     .navigation .current {
       background: transparent url(/images/tab_top_right.png) top right no-repeat;
@@ -122,6 +126,7 @@ a, a:visited {
       padding-bottom: 0; /* linked to border-bottom */
     }
     #info_navigation a:hover {
+      border-bottom: none;
       padding-bottom: 0; /* linked to .navigation a:hover { border-bottom } */
     }
     .navigation .last_tab {

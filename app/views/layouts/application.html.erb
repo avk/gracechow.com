@@ -25,14 +25,53 @@
 <div id="main_wrapper">
   <div id="header">
     <%= link_to image_tag('gracechow_name.png', :alt => "Grace Chow", :id => 'logo'), root_path %>
+    <ol id="info_navigation" class="navigation">
+      <li>
+        <%= link_to "about", about_path %>
+      </li>
+      <li class="last_tab">
+        <%= link_to "contact", contact_path %>
+      </li>
+    </ol>
+
     <% if logged_in? -%>
       <div id="logged_in">
         Welcome back, Grace ( <%= link_to "log out", logout_path, { :title => "log out" } %> )
       </div>
     <% end -%>
   </div>
+
   <div class="clr"></div>
-  <%= render :partial => 'layouts/nav' %>
+
+  <ol id="galleries" class="navigation">
+    <% Gallery.ordered.each do |gallery| %>
+      <li id="gallery_<%= gallery.id %>" class="<%= 'current' if (viewing_gallery? gallery) %>">
+        <%- link_text = h(gallery.name) -%>
+
+        <%- if viewing_gallery?(gallery) -%>
+          <span class="current_text"><%= link_text %></span>
+        <%- else -%>
+          <%= link_to link_text, gallery %>
+        <%- end -%>
+
+        <%- if logged_in? -%>
+          <sup class="handle">&deg;</sup>
+        <% end -%>
+      </li>
+    <% end -%>
+  </ol>
+
+  <%- if logged_in? -%>
+  <ol class="navigation">
+    <li><%= link_to '+', new_gallery_path %></li>
+  </ol>
+  <% end -%>
+
+  <%- if logged_in? -%>
+    <%= sortable_element :galleries, :handle => 'handle', :constraint => 'horizontal', :url => reorder_galleries_path %>
+  <% end -%>
+
+  <div class="clr"></div>
 
   <%- wrapper_class = gallery_related? ? 'gallery_wrapper' : 'info_wrapper' -%>
   <%- 
