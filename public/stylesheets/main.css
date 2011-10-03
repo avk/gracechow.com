@@ -356,7 +356,7 @@ fieldset {
 /* About */
 
 #about {
-  height: 850px;
+  height: 600px;
 }
 
 #profile {
@@ -369,7 +369,7 @@ fieldset {
   border: 1px dotted #999;
   margin: 0 0 20px 275px;
   padding: 10px;
-  width: 50%;
+  width: 66%;
 }
   #quickbits ul {
     margin-left: 55px;
